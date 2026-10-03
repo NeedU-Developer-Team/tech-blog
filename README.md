@@ -1,6 +1,6 @@
-# BEHIND — 백엔드 팀 기술 블로그
+# Behind The NeedU — 개발팀 기술 블로그
 
-토스처럼 빠르고 담백한 인상을 참고해 만든 정적 기술 블로그입니다. 글은 Markdown으로 작성하며, `main` 브랜치에 올리면 GitHub Pages가 자동으로 빌드하고 배포합니다. 별도 서버나 데이터베이스가 필요 없습니다.
+토스처럼 빠르고 담백한 인상을 참고해 만든 프론트엔드·백엔드 개발팀의 정적 기술 블로그입니다. 글은 Markdown으로 작성하며, `main` 브랜치에 올리면 GitHub Pages가 자동으로 빌드하고 배포합니다. 별도 서버나 데이터베이스가 필요 없습니다.
 
 ## 0. 먼저 바꿀 것
 
@@ -60,7 +60,7 @@ npm run build
 ### GitHub 웹에서 빈 저장소 만들기
 
 1. GitHub 오른쪽 위 `+` → `New repository`를 누릅니다.
-2. 저장소 이름을 정합니다. 예: `backend-tech-blog`.
+2. 저장소 이름을 정합니다. 예: `tech-blog`.
 3. 공개 블로그라면 `Public`을 선택합니다.
 4. `README`, `.gitignore`, 라이선스 자동 생성은 체크하지 않고 저장소를 만듭니다.
 
@@ -71,9 +71,9 @@ npm run build
 ```bash
 git init
 git add .
-git commit -m "feat: launch backend tech blog"
+git commit -m "feat: launch NeedU tech blog"
 git branch -M main
-git remote add origin https://github.com/YOUR-ORG/backend-tech-blog.git
+git remote add origin https://github.com/YOUR-ORG/tech-blog.git
 git push -u origin main
 ```
 
@@ -84,7 +84,7 @@ git push -u origin main
 3. `Actions` 탭에서 `Deploy BEHIND to GitHub Pages` 작업이 성공할 때까지 기다립니다.
 4. 완료된 작업의 `deploy` 단계에 표시된 주소를 엽니다.
 
-프로젝트 저장소라면 주소는 보통 `https://YOUR-ID.github.io/backend-tech-blog/`입니다. 이 블로그는 저장소 하위 경로를 자동으로 인식하므로 링크와 스타일이 깨지지 않습니다.
+프로젝트 저장소라면 주소는 보통 `https://YOUR-ID.github.io/tech-blog/`입니다. 이 블로그는 저장소 하위 경로를 자동으로 인식하므로 링크와 스타일이 깨지지 않습니다.
 
 ## 4. 이후 글을 발행하는 흐름
 
@@ -127,7 +127,7 @@ DNS 반영에는 시간이 걸릴 수 있습니다. 와일드카드 DNS(`*.examp
 - 글 상태를 Issue의 `idea → draft → review → published` 라벨로 관리합니다.
 - 한 달에 한 번 오래된 글의 링크와 버전을 점검합니다.
 - 장애 글은 사람보다 시스템과 재발 방지에 초점을 둡니다.
-- `CODEOWNERS`로 BE 리뷰어 한 명 이상을 필수로 지정합니다.
+- 필요하면 `CODEOWNERS`로 개발팀 리뷰어를 지정합니다.
 - 공개 전 보안 검토가 필요한 주제는 PR 템플릿 체크리스트에 넣습니다.
 
 ## 구조

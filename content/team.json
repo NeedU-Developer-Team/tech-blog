@@ -14,5 +14,13 @@
     "initial": "정",
     "color": "cyan",
     "github": "https://github.com/FinnPing1741"
+  },
+  {
+    "name": "김주희",
+    "role": "Frontend Engineer",
+    "focus": "React · 사용자 경험",
+    "initial": "김",
+    "color": "blue",
+    "github": "https://github.com/juiuj"
   }
 ]

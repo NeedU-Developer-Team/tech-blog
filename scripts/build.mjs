@@ -235,7 +235,7 @@ function layout({ config, title, description, active = '', content, type = 'webs
     <div class="container footer-inner">
       <div><a class="brand footer-brand" href="${url('/')}"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>${escapeHtml(config.name)}</span></a><p>${escapeHtml(config.description)}</p></div>
       <div class="footer-links"><a href="${url('/#articles')}">아티클</a><a href="${url('/team/')}">팀</a><a href="${escapeHtml(config.github)}" target="_blank" rel="noreferrer">GitHub</a></div>
-      <p class="copyright">© ${new Date().getFullYear()} ${escapeHtml(config.name)}. Built by the backend team.</p>
+      <p class="copyright">© ${new Date().getFullYear()} ${escapeHtml(config.name)}. Built by the engineering team.</p>
     </div>
   </footer>
   ${scripts ? `<script>window.__BASE_PATH__=${JSON.stringify(basePath)};</script><script src="${url('/assets/app.js')}" defer></script>` : ''}
@@ -267,17 +267,17 @@ function indexPage(config, posts) {
   <section class="hero container">
     <div class="hero-copy reveal">
       <span class="eyebrow">${escapeHtml(config.teamLabel)}</span>
-      <h1>보이지 않는 곳에서<br><span>더 단단한 서비스</span>를 만듭니다.</h1>
-      <p>성공한 결과보다 그 뒤의 선택을 기록합니다.<br class="desktop-only"> 장애, 성능, 아키텍처를 고민한 백엔드 팀의 이야기입니다.</p>
+      <h1>더 나은 경험과<br><span>더 단단한 시스템</span>을 만듭니다.</h1>
+      <p>성공한 결과보다 그 뒤의 선택을 기록합니다.<br class="desktop-only"> 제품 경험, 성능, 아키텍처를 함께 고민한 개발팀의 이야기입니다.</p>
       <a class="text-link" href="#articles">최신 아티클 보기 ${icon('arrow')}</a>
     </div>
     <div class="hero-feature reveal reveal-delay">
-      <div class="feature-orbit" aria-hidden="true"><span class="orbit-core">BE</span><i></i><i></i><i></i></div>
+      <div class="feature-orbit" aria-hidden="true"><span class="orbit-core">DEV</span><i></i><i></i><i></i></div>
       <div class="featured-label"><span>FEATURED</span><time datetime="${featured.date}">${formatDate(featured.date)}</time></div>
       <a href="${url(featured.permalink)}"><h2>${escapeHtml(featured.title)}</h2><p>${escapeHtml(featured.description)}</p><span class="feature-link">읽어보기 ${icon('arrow')}</span></a>
     </div>
   </section>
-  <section class="topic-strip" aria-label="다루는 주제"><div class="container topic-inner"><span>우리가 다루는 것</span><div>${['Architecture', 'Database', 'Performance', 'Reliability'].map((item) => `<b>${item}</b>`).join('<i>·</i>')}</div></div></section>
+  <section class="topic-strip" aria-label="다루는 주제"><div class="container topic-inner"><span>우리가 다루는 것</span><div>${['Frontend', 'Backend', 'Architecture', 'Reliability'].map((item) => `<b>${item}</b>`).join('<i>·</i>')}</div></div></section>
   <section class="articles-section container" id="articles">
     <div class="section-heading"><div><span class="eyebrow">ARTICLES</span><h2>최근에 나눈 이야기</h2></div><p>운영 환경에서 부딪힌 문제와<br>해결 과정을 솔직하게 남깁니다.</p></div>
     <div class="article-controls">
@@ -288,8 +288,8 @@ function indexPage(config, posts) {
     <div class="empty-state" hidden data-empty><span>⌕</span><h3>검색 결과가 없어요</h3><p>다른 키워드나 카테고리로 찾아보세요.</p></div>
   </section>
   <section class="team-callout container">
-    <div><span class="eyebrow">OUR TEAM</span><h2>좋은 시스템은<br>좋은 질문에서 시작됩니다.</h2></div>
-    <div><p>정답보다 근거를, 개인의 기억보다 팀의 기록을 믿습니다. 우리가 일하고 배우는 방식을 소개합니다.</p><a class="button-primary" href="${url('/team/')}">BE 팀 만나기</a></div>
+    <div><span class="eyebrow">OUR TEAM</span><h2>좋은 제품은<br>좋은 질문에서 시작됩니다.</h2></div>
+    <div><p>정답보다 근거를, 개인의 기억보다 팀의 기록을 믿습니다. 우리가 일하고 배우는 방식을 소개합니다.</p><a class="button-primary" href="${url('/team/')}">개발팀 만나기</a></div>
   </section>`;
   return layout({ config, title: config.name, description: config.description, active: 'posts', canonical: '/', content });
 }
@@ -298,7 +298,7 @@ function teamPage(config, team) {
   const memberCards = team.map((member) => `<article class="member-card"><div class="avatar avatar-${escapeHtml(member.color)}">${escapeHtml(member.initial)}</div><div><h3>${escapeHtml(member.name)}</h3><p>${escapeHtml(member.role)}</p><span>${escapeHtml(member.focus)}</span></div><a href="${escapeHtml(member.github)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(member.name)} GitHub">${icon('github')}</a></article>`).join('');
   const content = `
   <section class="team-hero container">
-    <span class="eyebrow">BACKEND TEAM</span>
+    <span class="eyebrow">DEVELOPER TEAM</span>
     <h1>함께 고민하고,<br><span>근거를 남기는 팀</span></h1>
     <p>복잡한 문제를 단순하게 풀고, 그 과정에서 얻은 배움을 다음 사람에게 연결합니다.</p>
   </section>
@@ -307,9 +307,9 @@ function teamPage(config, team) {
     <article><span>02</span><h2>작게 검증하고 확장합니다</h2><p>완벽한 설계를 기다리지 않고, 되돌릴 수 있는 단위로 실험하며 근거를 쌓습니다.</p></article>
     <article><span>03</span><h2>실패도 자산으로 남깁니다</h2><p>장애와 시행착오를 숨기지 않습니다. 재발을 막는 시스템과 문서로 바꿉니다.</p></article>
   </section>
-  <section class="members-section container"><div class="section-heading"><div><span class="eyebrow">PEOPLE</span><h2>글을 쓰는 사람들</h2></div><p>서비스의 뒤편을 책임지는<br>백엔드 엔지니어입니다.</p></div><div class="member-grid">${memberCards}</div></section>
+  <section class="members-section container"><div class="section-heading"><div><span class="eyebrow">PEOPLE</span><h2>글을 쓰는 사람들</h2></div><p>제품의 앞과 뒤를 함께 만드는<br>프론트엔드·백엔드 엔지니어입니다.</p></div><div class="member-grid">${memberCards}</div></section>
   <section class="quote-section"><div class="container"><blockquote>“혼자만 아는 해결책은<br>팀의 해결책이 아닙니다.”</blockquote><p>우리가 기술 블로그를 쓰는 이유</p></div></section>`;
-  return layout({ config, title: '팀', description: 'NeedU 백엔드 팀과 우리가 일하는 방식을 소개합니다.', active: 'team', canonical: '/team/', content });
+  return layout({ config, title: '팀', description: 'NeedU 개발팀과 우리가 일하는 방식을 소개합니다.', active: 'team', canonical: '/team/', content });
 }
 
 function postPage(config, post, previous, next) {
