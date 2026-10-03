@@ -1,0 +1,18 @@
+[
+  {
+    "name": "노주연",
+    "role": "Backend Engineer",
+    "focus": "분산 시스템 · 결제",
+    "initial": "노",
+    "color": "blue",
+    "github": "https://github.com/jynoh00"
+  },
+  {
+    "name": "정지호",
+    "role": "Backend Engineer",
+    "focus": "데이터 플랫폼 · 검색",
+    "initial": "정",
+    "color": "cyan",
+    "github": "https://github.com/FinnPing1741"
+  }
+]
