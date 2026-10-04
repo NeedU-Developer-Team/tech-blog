@@ -200,8 +200,8 @@ svg { display: block; }
 .back-link { display: inline-flex; align-items: center; gap: 7px; color: var(--text-secondary); font-size: .88rem; font-weight: 600; }
 .back-link .icon { transform: rotate(180deg); }
 .article-kicker { margin-top: 58px; display: flex; align-items: center; gap: 12px; color: var(--text-tertiary); font-size: .84rem; }
-.article-header h1 { margin: 25px 0 22px; font-size: clamp(2.55rem, 5.5vw, 4.65rem); line-height: 1.18; letter-spacing: -.06em; }
-.article-description { max-width: 720px; margin: 0; color: var(--text-secondary); font-size: 1.15rem; line-height: 1.75; }
+.article-header h1 { margin: 25px 0 22px; font-size: clamp(2.55rem, 5.5vw, 4.65rem); line-height: 1.18; letter-spacing: -.06em; word-break: keep-all; overflow-wrap: break-word; text-wrap: balance; }
+.article-description { max-width: 720px; margin: 0; color: var(--text-secondary); font-size: 1.15rem; line-height: 1.75; word-break: keep-all; overflow-wrap: break-word; text-wrap: pretty; }
 .article-author { margin-top: 36px; display: flex; align-items: center; gap: 12px; }
 .mini-avatar { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 14px; background: var(--blue-soft); color: var(--blue-dark); font-size: .9rem; font-weight: 800; }
 .article-author strong, .article-author time { display: block; }
@@ -218,7 +218,7 @@ svg { display: block; }
 .toc nav { margin-top: 16px; display: grid; gap: 12px; }
 .toc a { color: var(--text-tertiary); font-size: .78rem; line-height: 1.5; transition: color .2s; }
 .toc a:hover, .toc a.active { color: var(--blue); }
-.prose { min-width: 0; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.9; }
+.prose { min-width: 0; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.9; word-break: keep-all; overflow-wrap: break-word; line-break: strict; text-wrap: pretty; }
 .prose > p:first-child { margin-top: 0; color: var(--text); font-size: 1.12rem; font-weight: 500; }
 .prose p { margin: 0 0 26px; }
 .prose h2 { margin: 72px 0 20px; color: var(--text); font-size: 2rem; line-height: 1.4; letter-spacing: -.045em; }
