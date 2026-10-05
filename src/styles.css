@@ -202,7 +202,9 @@ svg { display: block; }
 .article-kicker { margin-top: 58px; display: flex; align-items: center; gap: 12px; color: var(--text-tertiary); font-size: .84rem; }
 .article-header h1 { margin: 25px 0 22px; font-size: clamp(2.55rem, 5.5vw, 4.65rem); line-height: 1.18; letter-spacing: -.06em; word-break: keep-all; overflow-wrap: break-word; text-wrap: balance; }
 .article-description { max-width: 720px; margin: 0; color: var(--text-secondary); font-size: 1.15rem; line-height: 1.75; word-break: keep-all; overflow-wrap: break-word; text-wrap: pretty; }
-.article-author { margin-top: 36px; display: flex; align-items: center; gap: 12px; }
+.article-author { margin-top: 36px; display: flex; align-items: center; gap: 14px; }
+.article-author-list { display: flex; align-items: center; gap: 12px; }
+.article-author-list > a, .article-author-list > span { display: flex; align-items: center; gap: 8px; color: var(--text); text-decoration: none; }
 .mini-avatar { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 14px; background: var(--blue-soft); color: var(--blue-dark); font-size: .9rem; font-weight: 800; }
 .article-author strong, .article-author time { display: block; }
 .article-author strong { font-size: .88rem; }
@@ -316,6 +318,8 @@ svg { display: block; }
   .quote-section { padding: 90px 0; }
   .article-header { padding-top: 60px; padding-bottom: 55px; }
   .article-kicker { margin-top: 44px; }
+  .article-author { align-items: flex-start; flex-direction: column; }
+  .article-author-list { align-items: flex-start; flex-direction: column; }
   .article-accent { height: 160px; }
   .article-layout { padding-top: 60px; }
   .prose { font-size: 1rem; }

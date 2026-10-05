@@ -134,7 +134,8 @@ function markdownToHtml(markdown) {
       flushParagraph(); flushList(); flushQuote();
       const [, alt, src, caption] = image;
       const resolved = /^https?:\/\//.test(src) ? src : url(src);
-      html.push(`<figure><img src="${escapeHtml(resolved)}" alt="${escapeHtml(alt)}" loading="lazy">${caption ? `<figcaption>${inlineMarkdown(caption)}</figcaption>` : ''}</figure>`);
+      const captionText = caption || (!/^image(?: \d+)?\.png$/i.test(alt) ? alt : '');
+      html.push(`<figure><img src="${escapeHtml(resolved)}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async">${captionText ? `<figcaption>${inlineMarkdown(captionText)}</figcaption>` : ''}</figure>`);
       continue;
     }
 
@@ -324,6 +325,11 @@ function teamPage(config, team) {
 function postPage(config, post, previous, next) {
   const toc = post.toc.filter((item) => item.level === 2);
   const adjacent = [previous, next].map((item, index) => item ? `<a class="adjacent-link" href="${url(item.permalink)}"><span>${index === 0 ? '이전 글' : '다음 글'}</span><strong>${escapeHtml(item.title)}</strong></a>` : '<span></span>').join('');
+  const authors = post.authors.map((name) => {
+    const member = post.team.find((item) => item.name === name);
+    const profile = `<span class="mini-avatar">${escapeHtml(member?.initial || name.slice(0, 1))}</span><strong>${escapeHtml(name)}</strong>`;
+    return member?.github ? `<a href="${escapeHtml(member.github)}" target="_blank" rel="noreferrer">${profile}</a>` : `<span>${profile}</span>`;
+  }).join('');
   const content = `
   <article class="article-page">
     <header class="article-header container-narrow">
@@ -331,7 +337,7 @@ function postPage(config, post, previous, next) {
       <div class="article-kicker"><span class="category-badge">${escapeHtml(post.category)}</span><span>${post.readTime}분 읽기</span></div>
       <h1>${escapeHtml(post.title)}</h1>
       <p class="article-description">${escapeHtml(post.description)}</p>
-      <div class="article-author"><div class="mini-avatar">${escapeHtml(post.author.slice(0, 1))}</div><div><strong>${escapeHtml(post.author)}</strong><time datetime="${post.date}">${formatDate(post.date)}</time></div></div>
+      <div class="article-author"><div class="article-author-list">${authors}</div><time datetime="${post.date}">${formatDate(post.date)}</time></div>
     </header>
     <div class="article-accent" aria-hidden="true"><span>${escapeHtml(post.category)}</span><div></div></div>
     <div class="article-layout container">
@@ -351,7 +357,8 @@ async function loadPosts() {
     const { html, toc } = markdownToHtml(body);
     const slug = file.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
     const words = body.replace(/```[\s\S]*?```/g, '').split(/\s+/).filter(Boolean).length;
-    return { ...data, body, html, toc, slug, permalink: `/posts/${slug}/`, readTime: Math.max(3, Math.ceil(words / 180)), tags: data.tags || [] };
+    const authors = (Array.isArray(data.author) ? data.author : [data.author]).filter(Boolean);
+    return { ...data, author: authors.join(' · '), authors, body, html, toc, slug, permalink: `/posts/${slug}/`, readTime: Math.max(3, Math.ceil(words / 180)), tags: data.tags || [] };
   }));
   return posts.sort((a, b) => b.date.localeCompare(a.date));
 }
@@ -377,7 +384,7 @@ async function build() {
 
   await writePage('index.html', indexPage(config, posts));
   await writePage('team/index.html', teamPage(config, team));
-  await Promise.all(posts.map((post, index) => writePage(`posts/${post.slug}/index.html`, postPage(config, post, posts[index + 1], posts[index - 1]))));
+  await Promise.all(posts.map((post, index) => writePage(`posts/${post.slug}/index.html`, postPage(config, { ...post, team }, posts[index + 1], posts[index - 1]))));
 
   const notFound = layout({ config, title: '페이지를 찾을 수 없습니다', description: '요청한 페이지가 존재하지 않습니다.', content: `<section class="not-found container"><span>404</span><h1>길을 잃었어요.</h1><p>요청한 페이지를 찾을 수 없습니다.</p><a class="button-primary" href="${url('/')}">홈으로 돌아가기</a></section>` });
   await writePage('404.html', notFound);

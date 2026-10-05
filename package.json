@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
+    "check": "npm run build && node scripts/check-build.mjs",
     "dev": "node scripts/build.mjs --watch",
     "serve": "python3 -m http.server 4173 --directory dist",
     "new": "node scripts/new-post.mjs"
