@@ -129,6 +129,15 @@ function markdownToHtml(markdown) {
       flushTable();
     }
 
+    const image = line.trim().match(/^!\[([^\]]*)\]\(([^\s)]+)(?:\s+"([^"]*)")?\)$/);
+    if (image) {
+      flushParagraph(); flushList(); flushQuote();
+      const [, alt, src, caption] = image;
+      const resolved = /^https?:\/\//.test(src) ? src : url(src);
+      html.push(`<figure><img src="${escapeHtml(resolved)}" alt="${escapeHtml(alt)}" loading="lazy">${caption ? `<figcaption>${inlineMarkdown(caption)}</figcaption>` : ''}</figure>`);
+      continue;
+    }
+
     const heading = line.match(/^(#{2,3})\s+(.+)$/);
     if (heading) {
       flushParagraph(); flushList(); flushQuote();
@@ -363,6 +372,8 @@ async function build() {
   await rm(outDir, { recursive: true, force: true });
   await mkdir(path.join(outDir, 'assets'), { recursive: true });
   await cp(path.join(root, 'src'), path.join(outDir, 'assets'), { recursive: true });
+  await cp(path.join(contentDir, 'images'), path.join(outDir, 'images'), { recursive: true })
+    .catch((error) => { if (error.code !== 'ENOENT') throw error; });
 
   await writePage('index.html', indexPage(config, posts));
   await writePage('team/index.html', teamPage(config, team));

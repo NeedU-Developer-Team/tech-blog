@@ -229,6 +229,9 @@ svg { display: block; }
 .prose a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
 .prose blockquote { margin: 40px 0; padding: 24px 26px; border-left: 4px solid var(--blue); border-radius: 0 16px 16px 0; background: var(--blue-soft); color: var(--text); font-size: 1.08rem; font-weight: 600; }
 .prose hr { margin: 60px 0; border: 0; border-top: 1px solid var(--line); }
+.prose figure { margin: 40px 0; }
+.prose figure img { display: block; max-width: 100%; height: auto; margin: 0 auto; border: 1px solid var(--line); border-radius: var(--radius-sm); }
+.prose figcaption { margin-top: 12px; color: var(--text-tertiary); font-size: .88rem; text-align: center; }
 .prose :not(pre) > code { padding: 3px 7px; border-radius: 7px; background: var(--blue-soft); color: var(--blue-dark); font-family: "SFMono-Regular", Consolas, monospace; font-size: .86em; }
 .code-block { margin: 34px 0; overflow: hidden; border-radius: 18px; background: var(--code-bg); color: var(--code-text); }
 .code-toolbar { height: 48px; padding: 0 18px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,.1); color: #94a3b8; font: .74rem/1 "SFMono-Regular", Consolas, monospace; }
