@@ -3,7 +3,7 @@ title: 인덱스는 있었는데 왜 느렸을까: 조회 API 처리량을 19배
 description: MySQL 통계 오류로 발생한 풀스캔을 찾아내고, 조회 API의 최대 처리량을 약 130 RPS에서 3,571 RPS까지 높인 과정을 공유합니다.
 date: 2026-10-06
 author: [노주연, 정지호]
-category: Performance
+category: Backend
 tags: [MySQL, Performance, Load Test, Spring]
 featured: false
 ---
