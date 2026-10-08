@@ -2,7 +2,7 @@
   {
     "name": "노주연",
     "role": "Backend Engineer",
-    "focus": "분산 시스템 · 결제",
+    "focus": "Spring Boot · API 설계",
     "initial": "노",
     "color": "blue",
     "github": "https://github.com/jynoh00"
@@ -10,7 +10,7 @@
   {
     "name": "정지호",
     "role": "Backend Engineer",
-    "focus": "데이터 플랫폼 · 검색",
+    "focus": "Spring Boot · API 설계",
     "initial": "정",
     "color": "cyan",
     "github": "https://github.com/FinnPing1741"
@@ -22,5 +22,29 @@
     "initial": "김",
     "color": "blue",
     "github": "https://github.com/juiuj"
+  },
+  {
+    "name": "이효린",
+    "role": "DevOps Engineer",
+    "focus": "클라우드 인프라 · 배포 자동화",
+    "initial": "이",
+    "color": "cyan",
+    "github": "https://github.com/hyo-lin"
+  },
+  {
+    "name": "이소담",
+    "role": "DevOps Engineer",
+    "focus": "클라우드 인프라 · 배포 자동화",
+    "initial": "이",
+    "color": "blue",
+    "github": "https://github.com/sodam2z"
+  },
+  {
+    "name": "서동휘",
+    "role": "AI Engineer",
+    "focus": "AI 대화 · 추천 시스템",
+    "initial": "서",
+    "color": "cyan",
+    "github": "https://github.com/seoddhh"
   }
 ]
