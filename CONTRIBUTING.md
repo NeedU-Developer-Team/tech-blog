@@ -97,7 +97,7 @@ featured: false
 | `title` | 글 제목 |
 | `description` | 목록과 검색 결과에 표시할 한두 문장 요약 |
 | `date` | `YYYY-MM-DD` 형식의 발행일 |
-| `author` | `content/team.json`에 등록된 이름과 동일하게 작성 |
+| `author` | 한 명이면 `노주연`, 여러 명이면 `[노주연, 정지호]`처럼 `content/team.json`에 등록된 이름을 작성 |
 | `category` | 글의 대표 주제 하나 |
 | `tags` | 세부 기술 키워드, 보통 2~4개 |
 | `featured` | 메인 상단에 강조할 글만 `true` |
@@ -154,6 +154,7 @@ public void example() {
 - 표
 - 인용문
 - 링크
+- 이미지와 이미지 설명
 - 굵은 글씨와 인라인 코드
 - 이미지 (한 줄에 이미지 하나)
 
@@ -164,6 +165,14 @@ public void example() {
 ```
 
 스크린샷에 사용자 이름, 프로필 사진, 연락처 등 개인정보가 보이면 반드시 가린 뒤 올립니다.
+
+글에 넣을 이미지는 `src/images/posts/글-식별자` 아래에 저장하고 다음처럼 작성합니다. `/assets`로 시작해야 GitHub Pages의 저장소 하위 경로에서도 정상적으로 표시됩니다.
+
+```markdown
+![부하 테스트 전후 처리량 비교](/assets/images/posts/load-test-improvement/throughput.png)
+```
+
+이미지 설명은 접근성을 위한 대체 텍스트이자 화면에 표시되는 캡션이므로 `image.png` 대신 내용을 설명하는 문장을 사용합니다.
 
 좋은 글은 보통 `문제 → 검토한 선택지 → 결정과 근거 → 결과 → 배운 점`의 흐름을 가집니다.
 
@@ -244,7 +253,7 @@ git diff
 작성한 글을 commit합니다.
 
 ```bash
-git add content/posts
+git add content/posts src/images/posts
 git commit -m "docs: Redis 분산 락 운영 경험 추가"
 git push origin main
 ```
