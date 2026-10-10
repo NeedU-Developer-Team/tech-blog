@@ -97,12 +97,18 @@ featured: false
 | `title` | 글 제목 |
 | `description` | 목록과 검색 결과에 표시할 한두 문장 요약 |
 | `date` | `YYYY-MM-DD` 형식의 발행일 |
-| `author` | 한 명이면 `노주연`, 여러 명이면 `[노주연, 정지호]`처럼 `content/team.json`에 등록된 이름을 작성 |
+| `author` | 한 명이면 `노주연`, 여러 명이면 `[노주연, 정지호]`처럼 `content/team.json`의 `name`과 정확히 같은 이름을 작성 |
 | `category` | 글의 대표 주제 하나 |
 | `tags` | 세부 기술 키워드, 보통 2~4개 |
 | `featured` | 메인 상단에 강조할 글만 `true` |
 
-카테고리는 가능하면 아래 이름을 재사용합니다. 표기를 통일해야 필터가 불필요하게 늘어나지 않습니다.
+값은 따옴표로 감싸지 않습니다. `title: "글 제목"`처럼 쓰면 따옴표까지 제목에 그대로 표시됩니다.
+
+`author`는 메인 카드와 글 상단의 작성자 표시, 그리고 팀 페이지의 팀원별 작성 글 목록에 사용됩니다. 이름이 `team.json`과 한 글자라도 다르면 GitHub 링크가 붙지 않고, 팀 페이지에서 해당 팀원의 글로 집계되지 않습니다.
+
+`description`은 메인 상단 대표 카드에서 두 줄까지만 보이고, 제목은 세 줄까지만 보입니다. 넘치는 부분은 말줄임표로 처리되므로 요약의 앞부분에 핵심을 씁니다.
+
+카테고리는 가능하면 아래 이름을 재사용합니다. 새 카테고리를 쓰면 메인의 카테고리 필터 버튼이 자동으로 하나 늘어나므로, 표기를 통일해야 필터가 불필요하게 늘어나지 않습니다.
 
 - `Architecture`
 - `Database`
@@ -110,9 +116,12 @@ featured: false
 - `Reliability`
 - `Frontend`
 - `Backend`
+- `AI`
+- `Service`
+- `DevOps`
 - `Team`
 
-`featured: true`인 글은 한 편만 유지하는 것을 권장합니다. 새로운 대표 글을 지정할 때는 기존 대표 글을 `false`로 변경합니다.
+`featured: true`인 글은 한 편만 유지하는 것을 권장합니다. 새로운 대표 글을 지정할 때는 기존 대표 글을 `false`로 변경합니다. `featured: true`인 글이 없으면 가장 최근 글이 대표 카드에 표시됩니다.
 
 ## 4. 본문 작성 규칙
 
@@ -157,6 +166,15 @@ public void example() {
 - 이미지와 이미지 설명
 - 굵은 글씨와 인라인 코드
 - 이미지 (한 줄에 이미지 하나)
+
+코드 블록에 언어를 적으면 문법에 따라 색이 입혀집니다. 지원하는 언어는 `java`, `python`(`py`), `sql`, `json`, `http`입니다. 그 밖의 언어나 언어를 적지 않은 블록은 색 없이 표시됩니다. 실행 결과, 로그, `EXPLAIN` 출력처럼 코드가 아닌 내용은 `text`로 적어야 엉뚱한 단어에 색이 입혀지지 않습니다.
+
+````markdown
+```python
+def example():
+    return "언어를 적으면 색이 입혀집니다"
+```
+````
 
 이미지는 `content/images/<글 파일 이름>/` 폴더에 넣고 `/images/...` 경로로 참조합니다. 따옴표 안의 값은 이미지 아래 캡션으로 표시되며 생략할 수 있습니다.
 
@@ -321,9 +339,11 @@ git push origin main
 
 사용 가능한 색상은 `blue`, `cyan`, `violet`, `green`입니다. JSON에서는 마지막 항목 뒤에 쉼표를 붙이지 않습니다.
 
-직무에 따라 `role`을 `Frontend Engineer` 또는 `Backend Engineer`로 입력합니다.
+`role`은 `Frontend Engineer`, `Backend Engineer`, `DevOps Engineer`, `AI Engineer`처럼 `<직군> Engineer` 형식으로 입력합니다. 팀 페이지의 직군 필터는 이 값에서 ` Engineer`를 뺀 이름으로 자동 생성되므로, 같은 직군은 대소문자까지 똑같이 적습니다.
 
-블로그 이름, 설명, 팀 GitHub 주소는 `site.config.json`에서 관리합니다.
+`name`은 글 front matter의 `author`와 정확히 같아야 합니다. 팀 페이지에서 팀원 카드를 펼치면 `author`가 일치하는 글만 작성 글 목록에 표시됩니다.
+
+블로그 이름(`name`), 설명(`description`), 메인 상단 라벨(`teamLabel`), 팀 GitHub 주소(`github`)는 `site.config.json`에서 관리합니다.
 
 ## 11. 수정하면 안 되는 파일
 
@@ -364,6 +384,11 @@ python3 -m http.server 4174 --directory dist
 - 파일 위아래의 `---`가 빠지지 않았는지 확인합니다.
 - `date`가 `YYYY-MM-DD` 형식인지 확인합니다.
 - `npm run build`를 다시 실행합니다.
+
+### 팀 페이지에 내 글이 보이지 않음
+
+- 글의 `author`가 `content/team.json`의 `name`과 띄어쓰기까지 같은지 확인합니다.
+- `author`를 따옴표로 감싸지 않았는지 확인합니다.
 
 ### GitHub Actions 배포 실패
 

@@ -65,6 +65,47 @@ function inlineMarkdown(text) {
   return value;
 }
 
+const highlightKeywords = {
+  java: new Set('abstract assert boolean break byte case catch char class continue default do double else enum extends final finally float for if implements import instanceof int interface long native new package private protected public record return short static super switch synchronized this throw throws try var void volatile while yield true false null'.split(' ')),
+  python: new Set('and as assert async await break class continue def del elif else except finally for from global if import in is lambda nonlocal not or pass raise return try while with yield True False None self'.split(' ')),
+  sql: new Set('select from where and or not in is null as on join left right inner outer cross group by order having limit offset insert into values update set delete create table index primary key foreign references alter add drop explain analyze show distinct desc asc between like union all exists case when then else end with force use ignore'.split(' '))
+};
+
+const highlightRules = {
+  java: [['comment', /\/\/[^\n]*|\/\*[\s\S]*?\*\//], ['string', /"(?:\\.|[^"\\\n])*"|'(?:\\.|[^'\\\n])'/], ['annotation', /@[A-Za-z_]\w*/], ['number', /\b\d[\d_]*(?:\.\d+)?[lLfFdD]?\b/], ['word', /[A-Za-z_$][\w$]*/]],
+  python: [['comment', /#[^\n]*/], ['string', /[rfbu]{0,2}(?:"""[\s\S]*?"""|'''[\s\S]*?'''|"(?:\\.|[^"\\\n])*"|'(?:\\.|[^'\\\n])*')/], ['annotation', /@[A-Za-z_][\w.]*/], ['number', /\b\d[\d_]*(?:\.\d+)?\b/], ['word', /[A-Za-z_]\w*/]],
+  sql: [['comment', /--[^\n]*/], ['string', /'(?:''|[^'])*'/], ['number', /\b\d+(?:\.\d+)?\b/], ['word', /[A-Za-z_]\w*/]],
+  json: [['property', /"(?:\\.|[^"\\])*"(?=\s*:)/], ['string', /"(?:\\.|[^"\\])*"/], ['number', /-?\b\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\b/], ['keyword', /\b(?:true|false|null)\b/]],
+  http: [['keyword', /^(?:GET|POST|PUT|PATCH|DELETE|HEAD|OPTIONS)\b|^HTTP\/[\d.]+/], ['number', /(?<=^HTTP\/[\d.]+ )\d{3}/], ['property', /^[\w-]+(?=:)/]]
+};
+
+function classifyWord(word, language, code, end) {
+  if (highlightKeywords[language]?.has(language === 'sql' ? word.toLowerCase() : word)) return 'keyword';
+  const call = /\s*\(/y;
+  call.lastIndex = end;
+  if (call.test(code)) return 'function';
+  if (['java', 'python'].includes(language) && /^[A-Z][A-Z0-9_]+$/.test(word)) return 'constant';
+  if (['java', 'python'].includes(language) && /^[A-Z]/.test(word)) return 'type';
+  return '';
+}
+
+function highlightCode(code, language) {
+  const rules = highlightRules[language];
+  if (!rules) return escapeHtml(code);
+  const pattern = new RegExp(rules.map(([, regex]) => `(${regex.source})`).join('|'), 'gm');
+  let html = '';
+  let last = 0;
+  for (const match of code.matchAll(pattern)) {
+    const [text] = match;
+    const end = match.index + text.length;
+    let type = rules[match.slice(1).findIndex((group) => group !== undefined)][0];
+    if (type === 'word') type = classifyWord(text, language, code, end);
+    html += escapeHtml(code.slice(last, match.index)) + (type ? `<span class="tok-${type}">${escapeHtml(text)}</span>` : escapeHtml(text));
+    last = end;
+  }
+  return html + escapeHtml(code.slice(last));
+}
+
 function markdownToHtml(markdown) {
   const lines = markdown.split('\n');
   const html = [];
@@ -106,7 +147,7 @@ function markdownToHtml(markdown) {
         codeLanguage = fence[1].trim() || 'text';
         code = [];
       } else {
-        const encoded = escapeHtml(code.join('\n'));
+        const encoded = highlightCode(code.join('\n'), { py: 'python' }[codeLanguage.toLowerCase()] || codeLanguage.toLowerCase());
         html.push(`<div class="code-block"><div class="code-toolbar"><span>${escapeHtml(codeLanguage)}</span><button class="copy-button" type="button" aria-label="코드 복사">복사</button></div><pre><code>${encoded}</code></pre></div>`);
         inCode = false;
       }
@@ -191,9 +232,9 @@ const icon = (name) => {
     menu: '<path d="M4 7h16M4 12h16M4 17h16"></path>',
     close: '<path d="m6 6 12 12M18 6 6 18"></path>',
     github: '<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.3-.4 6.8-1.6 6.8-7.4A5.8 5.8 0 0 0 19.3 3 5.4 5.4 0 0 0 19.1 0S17.9-.4 15 1.5a13.4 13.4 0 0 0-7 0C5.1-.4 3.9 0 3.9 0A5.4 5.4 0 0 0 3.7 3a5.8 5.8 0 0 0-1.5 4.1c0 5.8 3.5 7 6.8 7.4A4.8 4.8 0 0 0 8 18v4"></path><path d="M8 19c-3 .9-3-1.5-4-2"></path>',
-    clock: '<circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path>',
     external: '<path d="M15 4h5v5M13 11l7-7M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"></path>',
-    arrow: '<path d="M5 12h14M13 6l6 6-6 6"></path>'
+    arrow: '<path d="M5 12h14M13 6l6 6-6 6"></path>',
+    chevron: '<path d="m6 9 6 6 6-6"></path>'
   };
   return `<svg class="icon icon-${name}" viewBox="0 0 24 24" aria-hidden="true">${paths[name]}</svg>`;
 };
@@ -245,7 +286,7 @@ function layout({ config, title, description, active = '', content, type = 'webs
     <div class="container footer-inner">
       <div><a class="brand footer-brand" href="${url('/')}"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>${escapeHtml(config.name)}</span></a><p>${escapeHtml(config.description)}</p></div>
       <div class="footer-links"><a href="${url('/#articles')}">아티클</a><a href="${url('/team/')}">팀</a><a href="${escapeHtml(config.github)}" target="_blank" rel="noreferrer">GitHub</a></div>
-      <p class="copyright">© ${new Date().getFullYear()} ${escapeHtml(config.name)}. Built by the engineering team.</p>
+      <p class="copyright">© ${new Date().getFullYear()} ${escapeHtml(config.name)}</p>
     </div>
   </footer>
   ${scripts ? `<script>window.__BASE_PATH__=${JSON.stringify(basePath)};</script><script src="${url('/assets/app.js')}" defer></script>` : ''}
@@ -257,7 +298,7 @@ function postCard(post, { featured = false } = {}) {
   const tags = post.tags.slice(0, featured ? 3 : 2).map((tag) => `<span>${escapeHtml(tag)}</span>`).join('');
   return `<article class="post-card ${featured ? 'featured-card' : ''}" data-article data-search="${escapeHtml(`${post.title} ${post.description} ${post.category} ${post.tags.join(' ')} ${post.author}`.toLowerCase())}" data-category="${escapeHtml(post.category)}">
     <a class="post-card-link" href="${url(post.permalink)}" aria-label="${escapeHtml(post.title)} 읽기"></a>
-    <div class="card-top"><span class="category-badge">${escapeHtml(post.category)}</span><span class="read-time">${icon('clock')} ${post.readTime}분</span></div>
+    <div class="card-top"><span class="category-badge">${escapeHtml(post.category)}</span><span class="read-time">${post.readTime}분 읽기</span></div>
     <div class="card-body">
       <h${featured ? '2' : '3'}>${escapeHtml(post.title)}</h${featured ? '2' : '3'}>
       <p>${escapeHtml(post.description)}</p>
@@ -282,43 +323,70 @@ function indexPage(config, posts) {
       <a class="text-link" href="#articles">최신 아티클 보기 ${icon('arrow')}</a>
     </div>
     <div class="hero-feature reveal reveal-delay">
-      <div class="feature-orbit" aria-hidden="true"><span class="orbit-core">DEV</span><i></i><i></i><i></i></div>
+      <div class="feature-orbit" aria-hidden="true"><span class="orbit-core">DEV</span><i></i><i></i></div>
       <div class="featured-label"><span>FEATURED</span><time datetime="${featured.date}">${formatDate(featured.date)}</time></div>
       <a href="${url(featured.permalink)}"><h2>${escapeHtml(featured.title)}</h2><p>${escapeHtml(featured.description)}</p><span class="feature-link">읽어보기 ${icon('arrow')}</span></a>
     </div>
   </section>
-  <section class="topic-strip" aria-label="다루는 주제"><div class="container topic-inner"><span>우리가 다루는 것</span><div>${['Frontend', 'Backend', 'Architecture', 'Reliability'].map((item) => `<b>${item}</b>`).join('<i>·</i>')}</div></div></section>
+  <section class="topic-strip container" aria-label="니쥬 서비스 소개"><div class="topic-inner"><span>우리가 만드는 서비스</span><div><b>내 취향을 몰라도 괜찮아요. AI와 대화하며 꼭 맞는 선물을 찾아보세요.</b><a class="promo-cta" href="https://needu.gift" target="_blank" rel="noreferrer">needu.gift 바로가기 ${icon('arrow')}</a></div></div></section>
   <section class="articles-section container" id="articles">
-    <div class="section-heading"><div><span class="eyebrow">ARTICLES</span><h2>최근에 나눈 이야기</h2></div><p>운영 환경에서 부딪힌 문제와<br>해결 과정을 솔직하게 남깁니다.</p></div>
+    <div class="section-heading"><div><span class="eyebrow">아티클</span><h2>최근에 나눈 이야기</h2></div><p>운영 환경에서 부딪힌 문제와 해결 과정을 솔직하게 남깁니다.</p></div>
     <div class="article-controls">
       <div class="filter-list" role="group" aria-label="카테고리 필터">${categories.map((category, index) => `<button class="filter-button${index === 0 ? ' active' : ''}" type="button" data-filter="${escapeHtml(category)}" aria-pressed="${index === 0}">${escapeHtml(category)}</button>`).join('')}</div>
       <label class="search-field">${icon('search')}<span class="sr-only">글 검색</span><input type="search" placeholder="글 검색" data-search-input></label>
     </div>
     <div class="article-grid">${posts.map((post) => postCard(post)).join('')}</div>
-    <div class="empty-state" hidden data-empty><span>⌕</span><h3>검색 결과가 없어요</h3><p>다른 키워드나 카테고리로 찾아보세요.</p></div>
+    <div class="empty-state" hidden data-empty><h3>검색 결과가 없어요</h3><p>다른 키워드나 카테고리로 찾아보세요.</p></div>
   </section>
   <section class="team-callout container">
-    <div><span class="eyebrow">OUR TEAM</span><h2>좋은 제품은<br>좋은 질문에서 시작됩니다.</h2></div>
+    <div><span class="eyebrow">개발팀</span><h2>좋은 제품은<br>좋은 질문에서 시작됩니다.</h2></div>
     <div><p>정답보다 근거를, 개인의 기억보다 팀의 기록을 믿습니다. 우리가 일하고 배우는 방식을 소개합니다.</p><a class="button-primary" href="${url('/team/')}">개발팀 만나기</a></div>
   </section>`;
   return layout({ config, title: config.name, description: config.description, active: 'posts', canonical: '/', content });
 }
 
-function teamPage(config, team) {
-  const memberCards = team.map((member) => `<article class="member-card"><div class="avatar avatar-${escapeHtml(member.color)}">${escapeHtml(member.initial)}</div><div><h3>${escapeHtml(member.name)}</h3><p>${escapeHtml(member.role)}</p><span>${escapeHtml(member.focus)}</span></div><a href="${escapeHtml(member.github)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(member.name)} GitHub">${icon('github')}</a></article>`).join('');
+function teamPage(config, team, posts) {
+  const roleOf = (member) => member.role.replace(/\s*Engineer$/, '');
+  const roles = [...new Set(team.map(roleOf))];
+  const filters = [['전체', team.length], ...roles.map((role) => [role, team.filter((member) => roleOf(member) === role).length])];
+  const memberCards = team.map((member) => {
+    const written = posts.filter((post) => post.authors.includes(member.name));
+    const postList = written.length
+      ? `<ul class="member-posts">${written.map((post) => `<li><a href="${url(post.permalink)}"><strong>${escapeHtml(post.title)}</strong><time datetime="${post.date}">${formatDate(post.date)}</time></a></li>`).join('')}</ul>`
+      : '<p class="member-empty">아직 작성한 글이 없어요. 첫 글을 준비하고 있어요.</p>';
+    return `<details class="member-card" data-tilt="4" data-member data-role="${escapeHtml(roleOf(member))}">
+      <summary>
+        <div class="avatar avatar-${escapeHtml(member.color)}">${escapeHtml(member.initial)}</div>
+        <div class="member-info"><h3>${escapeHtml(member.name)}</h3><p>${escapeHtml(member.role)}</p><span>${escapeHtml(member.focus)}</span></div>
+        <a class="member-github" href="${escapeHtml(member.github)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(member.name)} GitHub 프로필">${icon('github')}</a>
+        <span class="member-chevron" aria-hidden="true">${icon('chevron')}</span>
+      </summary>
+      <div class="member-panel"><span class="member-panel-title">작성한 글 ${written.length}편</span>${postList}</div>
+    </details>`;
+  }).join('');
   const content = `
-  <section class="team-hero container">
-    <span class="eyebrow">DEVELOPER TEAM</span>
-    <h1>함께 고민하고,<br><span>근거를 남기는 팀</span></h1>
+  <section class="team-hero container" data-tilt="8">
+    <span class="eyebrow">NeedU 개발팀</span>
+    <h1><span class="hero-line">함께 고민하고,</span><span class="hero-line hero-accent">근거를 남기는 팀</span></h1>
     <p>복잡한 문제를 단순하게 풀고, 그 과정에서 얻은 배움을 다음 사람에게 연결합니다.</p>
   </section>
-  <section class="principles container">
-    <article><span>01</span><h2>고객의 문제부터 봅니다</h2><p>기술의 새로움보다 고객이 겪는 불편과 비즈니스 임팩트를 먼저 확인합니다.</p></article>
-    <article><span>02</span><h2>작게 검증하고 확장합니다</h2><p>완벽한 설계를 기다리지 않고, 되돌릴 수 있는 단위로 실험하며 근거를 쌓습니다.</p></article>
-    <article><span>03</span><h2>실패도 자산으로 남깁니다</h2><p>장애와 시행착오를 숨기지 않습니다. 재발을 막는 시스템과 문서로 바꿉니다.</p></article>
+  <section class="principles container" aria-label="일하는 방식">
+    <article tabindex="0" data-tilt="10"><span>01</span><h2>고객의 문제부터 봅니다</h2><p>기술의 새로움보다 고객이 겪는 불편과 비즈니스 임팩트를 먼저 확인합니다.</p></article>
+    <article tabindex="0" class="is-active" data-tilt="10"><span>02</span><h2>작게 검증하고 확장합니다</h2><p>완벽한 설계를 기다리지 않고, 되돌릴 수 있는 단위로 실험하며 근거를 쌓습니다.</p></article>
+    <article tabindex="0" data-tilt="10"><span>03</span><h2>실패도 자산으로 남깁니다</h2><p>장애와 시행착오를 숨기지 않습니다. 재발을 막는 시스템과 문서로 바꿉니다.</p></article>
   </section>
-  <section class="members-section container"><div class="section-heading"><div><span class="eyebrow">PEOPLE</span><h2>글을 쓰는 사람들</h2></div><p>제품의 앞과 뒤를 함께 만드는<br>프론트엔드·백엔드 엔지니어입니다.</p></div><div class="member-grid">${memberCards}</div></section>
-  <section class="quote-section"><div class="container"><blockquote>“혼자만 아는 해결책은<br>팀의 해결책이 아닙니다.”</blockquote><p>우리가 기술 블로그를 쓰는 이유</p></div></section>`;
+  <section class="members-section container">
+    <div class="section-heading"><div><span class="eyebrow">구성원</span><h2>글을 쓰는 사람들</h2></div><p>제품의 앞과 뒤를 함께 만드는<br>프론트엔드·백엔드·DevOps·AI 엔지니어입니다.</p></div>
+    <div class="filter-list member-filters" role="group" aria-label="직군 필터">${filters.map(([role, count], index) => `<button class="filter-button${index === 0 ? ' active' : ''}" type="button" data-member-filter="${escapeHtml(role)}" aria-pressed="${index === 0}">${escapeHtml(role)} <span class="filter-count">${count}</span></button>`).join('')}</div>
+    <div class="member-grid">${memberCards}</div>
+  </section>
+  <section class="quote-section" data-tilt="10" data-reveal>
+    <div class="quote-floor" aria-hidden="true"></div>
+    <div class="container quote-stage">
+      <blockquote><span class="quote-line">“혼자만 아는 해결책은</span><span class="quote-line">팀의 해결책이 아닙니다.”</span></blockquote>
+      <p class="quote-caption">우리가 기술 블로그를 쓰는 이유</p>
+    </div>
+  </section>`;
   return layout({ config, title: '팀', description: 'NeedU 개발팀과 우리가 일하는 방식을 소개합니다.', active: 'team', canonical: '/team/', content });
 }
 
@@ -333,16 +401,14 @@ function postPage(config, post, previous, next) {
   const content = `
   <article class="article-page">
     <header class="article-header container-narrow">
-      <a class="back-link" href="${url('/#articles')}">${icon('arrow')} 모든 글</a>
-      <div class="article-kicker"><span class="category-badge">${escapeHtml(post.category)}</span><span>${post.readTime}분 읽기</span></div>
+      <span class="category-badge">${escapeHtml(post.category)}</span>
       <h1>${escapeHtml(post.title)}</h1>
       <p class="article-description">${escapeHtml(post.description)}</p>
-      <div class="article-author"><div class="article-author-list">${authors}</div><time datetime="${post.date}">${formatDate(post.date)}</time></div>
+      <div class="article-author"><div class="article-author-list">${authors}</div><span class="article-date"><time datetime="${post.date}">${formatDate(post.date)}</time> · ${post.readTime}분 읽기</span></div>
     </header>
-    <div class="article-accent" aria-hidden="true"><span>${escapeHtml(post.category)}</span><div></div></div>
-    <div class="article-layout container">
-      <aside class="toc"><span>CONTENTS</span><nav>${toc.map((item) => `<a href="#${item.id}">${escapeHtml(item.text)}</a>`).join('')}</nav></aside>
+    <div class="article-layout">
       <div class="prose">${post.html}<div class="article-tags">${post.tags.map((tag) => `<span>#${escapeHtml(tag)}</span>`).join('')}</div><div class="article-share"><p>이 글이 도움이 되었나요?</p><button type="button" class="share-button" data-share data-title="${escapeHtml(post.title)}">링크 복사</button></div></div>
+      <aside class="toc"><span>목차</span><nav>${toc.map((item) => `<a href="#${item.id}">${escapeHtml(item.text)}</a>`).join('')}</nav></aside>
     </div>
     <nav class="adjacent-posts container-narrow" aria-label="이전 및 다음 글">${adjacent}</nav>
   </article>`;
@@ -383,7 +449,7 @@ async function build() {
     .catch((error) => { if (error.code !== 'ENOENT') throw error; });
 
   await writePage('index.html', indexPage(config, posts));
-  await writePage('team/index.html', teamPage(config, team));
+  await writePage('team/index.html', teamPage(config, team, posts));
   await Promise.all(posts.map((post, index) => writePage(`posts/${post.slug}/index.html`, postPage(config, { ...post, team }, posts[index + 1], posts[index - 1]))));
 
   const notFound = layout({ config, title: '페이지를 찾을 수 없습니다', description: '요청한 페이지가 존재하지 않습니다.', content: `<section class="not-found container"><span>404</span><h1>길을 잃었어요.</h1><p>요청한 페이지를 찾을 수 없습니다.</p><a class="button-primary" href="${url('/')}">홈으로 돌아가기</a></section>` });
