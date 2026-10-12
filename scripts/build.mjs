@@ -239,6 +239,20 @@ const icon = (name) => {
   return `<svg class="icon icon-${name}" viewBox="0 0 24 24" aria-hidden="true">${paths[name]}</svg>`;
 };
 
+// 토스 3D 아이콘 느낌의 입체 아이콘. 한 페이지에 여러 번 들어가므로 그라데이션 id를 아이콘마다 다르게 붙인다.
+let icon3dSeq = 0;
+const icon3d = (name, className = '') => {
+  const p = `i3d${++icon3dSeq}`;
+  const g = (id) => `url(#${p}${id})`;
+  const lin = (id, stops, [x1, y1, x2, y2] = [0, 0, 0, 1]) => `<linearGradient id="${p}${id}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}">${stops.map(([offset, color, opacity = 1]) => `<stop offset="${offset}" stop-color="${color}" stop-opacity="${opacity}"/>`).join('')}</linearGradient>`;
+  const shapes = {
+    gift: [lin('a', [[0, '#ff8d9c'], [1, '#f04452']]) + lin('b', [[0, '#ffb0ba'], [1, '#ff6d7f']]) + lin('c', [[0, '#ffe58a'], [1, '#ffb800']]),
+      `<rect x="9" y="25" width="30" height="19" rx="4.5" fill="#c42f3f"/><rect x="9" y="22.5" width="30" height="19" rx="4.5" fill="${g('a')}"/><rect x="6" y="17" width="36" height="10" rx="4" fill="#d83a4c"/><rect x="6" y="14.5" width="36" height="10" rx="4" fill="${g('b')}"/><rect x="21" y="14.5" width="6" height="27" fill="${g('c')}"/><path d="M24 14.5C19 5.5 9.5 8.5 13.3 13.6C14.8 15.6 20 15.2 24 14.5ZM24 14.5C29 5.5 38.5 8.5 34.7 13.6C33.2 15.6 28 15.2 24 14.5Z" fill="${g('c')}"/><circle cx="24" cy="14.5" r="3" fill="#ffc21f"/><rect x="9" y="16" width="9" height="3" rx="1.5" fill="#fff" opacity=".55"/><rect x="12" y="26" width="3" height="11" rx="1.5" fill="#fff" opacity=".35"/>`],
+  };
+  const [defs, body] = shapes[name];
+  return `<span class="icon-3d${className ? ` ${className}` : ''}" aria-hidden="true"><svg viewBox="0 0 48 48"><defs>${defs}</defs>${body}</svg></span>`;
+};
+
 function layout({ config, title, description, active = '', content, type = 'website', canonical = '/', scripts = true }) {
   const pageTitle = title === config.name ? title : `${title} · ${config.name}`;
   return `<!doctype html>
@@ -328,7 +342,7 @@ function indexPage(config, posts) {
       <a href="${url(featured.permalink)}"><h2>${escapeHtml(featured.title)}</h2><p>${escapeHtml(featured.description)}</p><span class="feature-link">읽어보기 ${icon('arrow')}</span></a>
     </div>
   </section>
-  <section class="topic-strip container" aria-label="니쥬 서비스 소개"><div class="topic-inner"><span>우리가 만드는 서비스</span><div><b>내 취향을 몰라도 괜찮아요. AI와 대화하며 꼭 맞는 선물을 찾아보세요.</b><a class="promo-cta" href="https://needu.gift" target="_blank" rel="noreferrer">needu.gift 바로가기 ${icon('arrow')}</a></div></div></section>
+  <section class="topic-strip container" aria-label="니쥬 서비스 소개"><div class="topic-inner"><span>${icon3d('gift')}우리가 만드는 서비스</span><div><b>내 취향을 몰라도 괜찮아요. AI와 대화하며 꼭 맞는 선물을 찾아보세요.</b><a class="promo-cta" href="https://needu.gift" target="_blank" rel="noreferrer">needu.gift 바로가기 ${icon('arrow')}</a></div></div></section>
   <section class="articles-section container" id="articles">
     <div class="section-heading"><div><span class="eyebrow">아티클</span><h2>최근에 나눈 이야기</h2></div><p>운영 환경에서 부딪힌 문제와 해결 과정을 솔직하게 남깁니다.</p></div>
     <div class="article-controls">
