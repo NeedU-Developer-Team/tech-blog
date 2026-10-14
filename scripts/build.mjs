@@ -267,7 +267,8 @@ function layout({ config, title, description, active = '', content, type = 'webs
   <meta property="og:description" content="${escapeHtml(description)}">
   <meta property="og:url" content="${fullUrl(canonical)}">
   <link rel="canonical" href="${fullUrl(canonical)}">
-  <link rel="icon" href="${url('/assets/favicon.svg')}" type="image/svg+xml">
+  <link rel="icon" href="${url('/assets/images/favicon.png')}" type="image/png">
+  <link rel="apple-touch-icon" href="${url('/assets/images/logo.png')}">
   <link rel="stylesheet" href="${url('/assets/styles.css')}">
   <title>${escapeHtml(pageTitle)}</title>
 </head>
@@ -276,7 +277,7 @@ function layout({ config, title, description, active = '', content, type = 'webs
   <header class="site-header">
     <div class="header-inner container">
       <a class="brand" href="${url('/')}" aria-label="${escapeHtml(config.name)} 홈">
-        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <img class="brand-mark" src="${url('/assets/images/logo.png')}" alt="" width="34" height="34">
         <span>${escapeHtml(config.name)}</span>
       </a>
       <nav class="desktop-nav" aria-label="주요 메뉴">
@@ -298,7 +299,7 @@ function layout({ config, title, description, active = '', content, type = 'webs
   <main id="main">${content}</main>
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div><a class="brand footer-brand" href="${url('/')}"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>${escapeHtml(config.name)}</span></a><p>${escapeHtml(config.description)}</p></div>
+      <div><a class="brand footer-brand" href="${url('/')}"><img class="brand-mark" src="${url('/assets/images/logo.png')}" alt="" width="34" height="34"><span>${escapeHtml(config.name)}</span></a><p>${escapeHtml(config.description)}</p></div>
       <div class="footer-links"><a href="${url('/#articles')}">아티클</a><a href="${url('/team/')}">팀</a><a href="${escapeHtml(config.github)}" target="_blank" rel="noreferrer">GitHub</a></div>
       <p class="copyright">© ${new Date().getFullYear()} ${escapeHtml(config.name)}</p>
     </div>
@@ -336,15 +337,17 @@ function indexPage(config, posts) {
       <p>성공한 결과보다 그 뒤의 선택을 기록합니다.<br class="desktop-only"> 제품 경험, 성능, 아키텍처를 함께 고민한 개발팀의 이야기입니다.</p>
       <a class="text-link" href="#articles">최신 아티클 보기 ${icon('arrow')}</a>
     </div>
-    <div class="hero-feature reveal reveal-delay">
+    <div class="hero-feature-wrap reveal reveal-delay">
+      <span class="eyebrow">최신 아티클</span>
+      <div class="hero-feature" data-tilt="10">
       <div class="feature-orbit" aria-hidden="true"><span class="orbit-core">DEV</span><i></i><i></i></div>
-      <div class="featured-label"><span>FEATURED</span><time datetime="${featured.date}">${formatDate(featured.date)}</time></div>
+      <div class="featured-label"><time datetime="${featured.date}">${featured.date.replaceAll('-', '.')}</time></div>
       <a href="${url(featured.permalink)}"><h2>${escapeHtml(featured.title)}</h2><p>${escapeHtml(featured.description)}</p><span class="feature-link">읽어보기 ${icon('arrow')}</span></a>
-    </div>
+    </div></div>
   </section>
   <section class="topic-strip container" aria-label="니쥬 서비스 소개"><div class="topic-inner"><span>${icon3d('gift')}우리가 만드는 서비스</span><div><b>내 취향을 몰라도 괜찮아요. AI와 대화하며 꼭 맞는 선물을 찾아보세요.</b><a class="promo-cta" href="https://needu.gift" target="_blank" rel="noreferrer">needu.gift 바로가기 ${icon('arrow')}</a></div></div></section>
   <section class="articles-section container" id="articles">
-    <div class="section-heading"><div><span class="eyebrow">아티클</span><h2>최근에 나눈 이야기</h2></div><p>운영 환경에서 부딪힌 문제와 해결 과정을 솔직하게 남깁니다.</p></div>
+    <div class="section-heading"><div><span class="eyebrow">아티클</span><h2>우리의 기록들</h2></div><p>운영 환경에서 부딪힌 문제와 해결 과정을 솔직하게 남깁니다.</p></div>
     <div class="article-controls">
       <div class="filter-list" role="group" aria-label="카테고리 필터">${categories.map((category, index) => `<button class="filter-button${index === 0 ? ' active' : ''}" type="button" data-filter="${escapeHtml(category)}" aria-pressed="${index === 0}">${escapeHtml(category)}</button>`).join('')}</div>
       <label class="search-field">${icon('search')}<span class="sr-only">글 검색</span><input type="search" placeholder="글 검색" data-search-input></label>
