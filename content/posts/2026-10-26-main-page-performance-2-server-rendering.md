@@ -1,7 +1,7 @@
 ---
 title: 측정부터 시작한 메인페이지 성능 개선 2편: 서버 조회 전환, 이미지, 렌더링 차단 CSS
 description: 웹폰트 개선 후에도 5초가 넘던 Lighthouse LCP를 2초 안으로 줄인 과정을 정리했습니다. GA 로딩 시점 조정, 데이터 서버 조회 전환, 상품 이미지 발견 시점 개선, 렌더링 차단 CSS 인라인을 차례로 적용했습니다.
-date: 2026-10-26
+date: 2026-10-28
 author: 김주희
 category: Frontend
 tags: [Next.js, 성능 최적화, 서버 컴포넌트, Lighthouse, Web Vitals]
