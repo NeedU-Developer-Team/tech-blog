@@ -1,6 +1,18 @@
 import { readFile, readdir, rm, mkdir, writeFile, cp, watch } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import hljs from 'highlight.js/lib/core';
+import bash from 'highlight.js/lib/languages/bash';
+import css from 'highlight.js/lib/languages/css';
+import http from 'highlight.js/lib/languages/http';
+import java from 'highlight.js/lib/languages/java';
+import javascript from 'highlight.js/lib/languages/javascript';
+import json from 'highlight.js/lib/languages/json';
+import nginx from 'highlight.js/lib/languages/nginx';
+import python from 'highlight.js/lib/languages/python';
+import sql from 'highlight.js/lib/languages/sql';
+import typescript from 'highlight.js/lib/languages/typescript';
+import xml from 'highlight.js/lib/languages/xml';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const outDir = path.join(root, 'dist');
@@ -65,45 +77,19 @@ function inlineMarkdown(text) {
   return value;
 }
 
-const highlightKeywords = {
-  java: new Set('abstract assert boolean break byte case catch char class continue default do double else enum extends final finally float for if implements import instanceof int interface long native new package private protected public record return short static super switch synchronized this throw throws try var void volatile while yield true false null'.split(' ')),
-  python: new Set('and as assert async await break class continue def del elif else except finally for from global if import in is lambda nonlocal not or pass raise return try while with yield True False None self'.split(' ')),
-  sql: new Set('select from where and or not in is null as on join left right inner outer cross group by order having limit offset insert into values update set delete create table index primary key foreign references alter add drop explain analyze show distinct desc asc between like union all exists case when then else end with force use ignore'.split(' '))
+const highlightLanguages = {
+  bash, css, http, java, javascript, json, nginx, python, sql, typescript, xml
 };
-
-const highlightRules = {
-  java: [['comment', /\/\/[^\n]*|\/\*[\s\S]*?\*\//], ['string', /"(?:\\.|[^"\\\n])*"|'(?:\\.|[^'\\\n])'/], ['annotation', /@[A-Za-z_]\w*/], ['number', /\b\d[\d_]*(?:\.\d+)?[lLfFdD]?\b/], ['word', /[A-Za-z_$][\w$]*/]],
-  python: [['comment', /#[^\n]*/], ['string', /[rfbu]{0,2}(?:"""[\s\S]*?"""|'''[\s\S]*?'''|"(?:\\.|[^"\\\n])*"|'(?:\\.|[^'\\\n])*')/], ['annotation', /@[A-Za-z_][\w.]*/], ['number', /\b\d[\d_]*(?:\.\d+)?\b/], ['word', /[A-Za-z_]\w*/]],
-  sql: [['comment', /--[^\n]*/], ['string', /'(?:''|[^'])*'/], ['number', /\b\d+(?:\.\d+)?\b/], ['word', /[A-Za-z_]\w*/]],
-  json: [['property', /"(?:\\.|[^"\\])*"(?=\s*:)/], ['string', /"(?:\\.|[^"\\])*"/], ['number', /-?\b\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\b/], ['keyword', /\b(?:true|false|null)\b/]],
-  http: [['keyword', /^(?:GET|POST|PUT|PATCH|DELETE|HEAD|OPTIONS)\b|^HTTP\/[\d.]+/], ['number', /(?<=^HTTP\/[\d.]+ )\d{3}/], ['property', /^[\w-]+(?=:)/]]
-};
-
-function classifyWord(word, language, code, end) {
-  if (highlightKeywords[language]?.has(language === 'sql' ? word.toLowerCase() : word)) return 'keyword';
-  const call = /\s*\(/y;
-  call.lastIndex = end;
-  if (call.test(code)) return 'function';
-  if (['java', 'python'].includes(language) && /^[A-Z][A-Z0-9_]+$/.test(word)) return 'constant';
-  if (['java', 'python'].includes(language) && /^[A-Z]/.test(word)) return 'type';
-  return '';
-}
+Object.entries(highlightLanguages).forEach(([name, language]) => hljs.registerLanguage(name, language));
+hljs.registerAliases(['js', 'jsx'], { languageName: 'javascript' });
+hljs.registerAliases(['ts', 'tsx'], { languageName: 'typescript' });
+hljs.registerAliases(['py'], { languageName: 'python' });
+hljs.registerAliases(['sh', 'shell', 'zsh'], { languageName: 'bash' });
+hljs.registerAliases(['html'], { languageName: 'xml' });
 
 function highlightCode(code, language) {
-  const rules = highlightRules[language];
-  if (!rules) return escapeHtml(code);
-  const pattern = new RegExp(rules.map(([, regex]) => `(${regex.source})`).join('|'), 'gm');
-  let html = '';
-  let last = 0;
-  for (const match of code.matchAll(pattern)) {
-    const [text] = match;
-    const end = match.index + text.length;
-    let type = rules[match.slice(1).findIndex((group) => group !== undefined)][0];
-    if (type === 'word') type = classifyWord(text, language, code, end);
-    html += escapeHtml(code.slice(last, match.index)) + (type ? `<span class="tok-${type}">${escapeHtml(text)}</span>` : escapeHtml(text));
-    last = end;
-  }
-  return html + escapeHtml(code.slice(last));
+  if (!hljs.getLanguage(language)) return escapeHtml(code);
+  return hljs.highlight(code, { language, ignoreIllegals: true }).value;
 }
 
 function markdownToHtml(markdown) {
@@ -147,7 +133,7 @@ function markdownToHtml(markdown) {
         codeLanguage = fence[1].trim() || 'text';
         code = [];
       } else {
-        const encoded = highlightCode(code.join('\n'), { py: 'python' }[codeLanguage.toLowerCase()] || codeLanguage.toLowerCase());
+        const encoded = highlightCode(code.join('\n'), codeLanguage.toLowerCase());
         html.push(`<div class="code-block"><div class="code-toolbar"><span>${escapeHtml(codeLanguage)}</span><button class="copy-button" type="button" aria-label="코드 복사">복사</button></div><pre><code>${encoded}</code></pre></div>`);
         inCode = false;
       }

@@ -167,7 +167,7 @@ public void example() {
 - 굵은 글씨와 인라인 코드
 - 이미지 (한 줄에 이미지 하나)
 
-코드 블록에 언어를 적으면 문법에 따라 색이 입혀집니다. 지원하는 언어는 `java`, `python`(`py`), `sql`, `json`, `http`입니다. 그 밖의 언어나 언어를 적지 않은 블록은 색 없이 표시됩니다. 실행 결과, 로그, `EXPLAIN` 출력처럼 코드가 아닌 내용은 `text`로 적어야 엉뚱한 단어에 색이 입혀지지 않습니다.
+코드 블록에 언어를 적으면 문법에 따라 색이 입혀집니다. 지원하는 언어는 `java`, `python`(`py`), `sql`, `json`, `http`, `typescript`(`ts`, `tsx`), `javascript`(`js`, `jsx`), `css`, `html`, `bash`(`sh`), `nginx`입니다. 그 밖의 언어나 언어를 적지 않은 블록은 색 없이 표시됩니다. 실행 결과, 로그, `EXPLAIN` 출력처럼 코드가 아닌 내용은 `text`로 적어야 엉뚱한 단어에 색이 입혀지지 않습니다.
 
 ````markdown
 ```python
