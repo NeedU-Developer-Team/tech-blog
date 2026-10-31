@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" width="760" height="360" font-family="-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretendard','Noto Sans KR','Malgun Gothic',sans-serif" role="img" aria-label="같은 대화방을 탭 두 개로 열어 SSE 연결이 서버 B와 C에 하나씩 있고, 답변을 만드는 서버 A는 연결이 어디에 몇 개 있는지 모르는 상황"><title>같은 대화방을 탭 두 개로 열어 SSE 연결이 서버 B와 C에 하나씩 있고, 답변을 만드는 서버 A는 연결이 어디에 몇 개 있는지 모르는 상황</title><defs><marker id="ah-line" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c4cbd3"/></marker><marker id="ah-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#f04452"/></marker></defs>
+<rect x="0.5" y="0.5" width="759" height="359" rx="16" fill="#ffffff" stroke="#e5e8eb"/>
+<text x="24" y="34" font-size="15" fill="#191f28" font-weight="700">탭을 두 개 열면 · 같은 대화방의 연결이 여러 서버에 흩어집니다</text>
+
+<!-- 브라우저 탭 -->
+<rect x="24" y="78" width="190" height="96" rx="12" fill="#f4f5f7" stroke="#d9dde2" stroke-width="1.5"/>
+<text x="44" y="104" font-size="14" fill="#191f28" font-weight="700">탭 1</text>
+<text x="80" y="104" font-size="11.5" fill="#8b95a1" font-weight="500">12번 대화방</text>
+<rect x="44" y="122" width="56" height="26" rx="13" fill="#ffffff" stroke="#d9dde2"/>
+<circle cx="60" cy="135" r="3" fill="#8b95a1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" begin="0s" repeatCount="indefinite"/></circle>
+<circle cx="72" cy="135" r="3" fill="#8b95a1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" begin="0.2s" repeatCount="indefinite"/></circle>
+<circle cx="84" cy="135" r="3" fill="#8b95a1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" begin="0.4s" repeatCount="indefinite"/></circle>
+
+<rect x="24" y="236" width="190" height="96" rx="12" fill="#f4f5f7" stroke="#d9dde2" stroke-width="1.5"/>
+<text x="44" y="262" font-size="14" fill="#191f28" font-weight="700">탭 2</text>
+<text x="80" y="262" font-size="11.5" fill="#8b95a1" font-weight="500">12번 대화방</text>
+<rect x="44" y="280" width="56" height="26" rx="13" fill="#ffffff" stroke="#d9dde2"/>
+<circle cx="60" cy="293" r="3" fill="#8b95a1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" begin="0s" repeatCount="indefinite"/></circle>
+<circle cx="72" cy="293" r="3" fill="#8b95a1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" begin="0.2s" repeatCount="indefinite"/></circle>
+<circle cx="84" cy="293" r="3" fill="#8b95a1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" begin="0.4s" repeatCount="indefinite"/></circle>
+
+<!-- 서버 -->
+<rect x="340" y="64" width="190" height="76" rx="12" fill="#f4f5f7" stroke="#d9dde2" stroke-width="1.5"/>
+<text x="435" y="90" font-size="14" fill="#191f28" text-anchor="middle" font-weight="700">서버 A</text>
+<text x="435" y="109" font-size="11.5" fill="#8b95a1" text-anchor="middle" font-weight="500">POST를 받아 답변 생성</text>
+<text x="435" y="127" font-size="11.5" fill="#4e5968" text-anchor="middle" font-weight="600">12번 대화방 연결 0개</text>
+
+<rect x="340" y="164" width="190" height="76" rx="12" fill="#f4f5f7" stroke="#d9dde2" stroke-width="1.5"/>
+<text x="435" y="190" font-size="14" fill="#191f28" text-anchor="middle" font-weight="700">서버 B</text>
+<text x="435" y="209" font-size="11.5" fill="#8b95a1" text-anchor="middle" font-weight="500">SseEmitter (탭 1)</text>
+<text x="435" y="227" font-size="11.5" fill="#00a661" text-anchor="middle" font-weight="600">12번 대화방 연결 1개</text>
+
+<rect x="340" y="264" width="190" height="76" rx="12" fill="#f4f5f7" stroke="#d9dde2" stroke-width="1.5"/>
+<text x="435" y="290" font-size="14" fill="#191f28" text-anchor="middle" font-weight="700">서버 C</text>
+<text x="435" y="309" font-size="11.5" fill="#8b95a1" text-anchor="middle" font-weight="500">SseEmitter (탭 2)</text>
+<text x="435" y="327" font-size="11.5" fill="#00a661" text-anchor="middle" font-weight="600">12번 대화방 연결 1개</text>
+
+<!-- 브라우저 ↔ 서버 -->
+<path d="M216 100 C276 100 280 96 336 96" fill="none" stroke="#c4cbd3" stroke-width="2" marker-end="url(#ah-line)" stroke-linecap="round"/>
+<text x="276" y="88" font-size="10.5" fill="#8b95a1" text-anchor="middle" font-weight="500">POST /messages</text>
+<path d="M338 202 C276 202 276 152 216 152" fill="none" stroke="#00a661" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round"/>
+<text x="262" y="220" font-size="10.5" fill="#00a661" text-anchor="middle" font-weight="600">GET /stream</text>
+<path d="M338 302 C276 302 276 310 216 310" fill="none" stroke="#00a661" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round"/>
+<text x="276" y="296" font-size="10.5" fill="#00a661" text-anchor="middle" font-weight="600">GET /stream</text>
+
+<!-- A가 모르는 것 -->
+<path d="M532 110 C572 120 572 192 534 200" fill="none" stroke="#f04452" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#ah-red)" stroke-linecap="round"/>
+<circle cx="562" cy="156" r="10" fill="#ffeced" stroke="#f04452" stroke-width="1.5"/>
+<text x="562" y="160.5" font-size="13" fill="#f04452" text-anchor="middle" font-weight="800">?</text>
+<path d="M532 118 C612 140 612 290 534 300" fill="none" stroke="#f04452" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#ah-red)" stroke-linecap="round"/>
+<circle cx="592" cy="213" r="10" fill="#ffeced" stroke="#f04452" stroke-width="1.5"/>
+<text x="592" y="217.5" font-size="13" fill="#f04452" text-anchor="middle" font-weight="800">?</text>
+
+<rect x="614" y="160" width="128" height="100" rx="10" fill="#ffeced" stroke="#f04452" stroke-width="1.5"/>
+<text x="678" y="186" font-size="12.5" fill="#f04452" text-anchor="middle" font-weight="700">A는 모릅니다</text>
+<text x="678" y="208" font-size="11.5" fill="#f04452" text-anchor="middle" font-weight="500">12번 대화방 연결이</text>
+<text x="678" y="226" font-size="11.5" fill="#f04452" text-anchor="middle" font-weight="500">어느 서버에,</text>
+<text x="678" y="244" font-size="11.5" fill="#f04452" text-anchor="middle" font-weight="500">몇 개 있는지</text>
+</svg>
