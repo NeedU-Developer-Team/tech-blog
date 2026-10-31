@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 858 720" role="img" aria-labelledby="title desc">
+  <title id="title">개선 후 AI 챗봇 답변</title>
+  <desc id="desc">사용자의 질문이 나타난 직후 니쥬의 답변 말풍선이 생기고, 같은 답변이 글자 단위로 차례차례 나타나는 애니메이션</desc>
+  <defs>
+    <clipPath id="line-1"><rect class="reveal reveal-1" x="180" y="287" width="0" height="38"/></clipPath>
+    <clipPath id="line-2"><rect class="reveal reveal-2" x="180" y="327" width="0" height="38"/></clipPath>
+    <clipPath id="line-3"><rect class="reveal reveal-3" x="180" y="367" width="0" height="38"/></clipPath>
+  </defs>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; fill: #202020; }
+    .question { animation: question 8s ease infinite; transform-origin: 830px 160px; }
+    .answer-shell { animation: answer-shell 8s ease infinite; transform-origin: 147px 220px; }
+    .reveal-1 { animation: reveal-1 8s steps(20, end) infinite; }
+    .reveal-2 { animation: reveal-2 8s steps(19, end) infinite; }
+    .reveal-3 { animation: reveal-3 8s steps(13, end) infinite; }
+    @keyframes question {
+      0%, 5% { opacity: 0; transform: translateY(10px) scale(.98); }
+      8%, 92% { opacity: 1; transform: translateY(0) scale(1); }
+      95%, 100% { opacity: 0; transform: translateY(0) scale(1); }
+    }
+    @keyframes answer-shell {
+      0%, 13% { opacity: 0; transform: translateY(10px) scale(.98); }
+      16%, 92% { opacity: 1; transform: translateY(0) scale(1); }
+      95%, 100% { opacity: 0; transform: translateY(0) scale(1); }
+    }
+    @keyframes reveal-1 {
+      0%, 17% { width: 0; }
+      37%, 92% { width: 560px; }
+      95%, 100% { width: 0; }
+    }
+    @keyframes reveal-2 {
+      0%, 37% { width: 0; }
+      57%, 92% { width: 560px; }
+      95%, 100% { width: 0; }
+    }
+    @keyframes reveal-3 {
+      0%, 57% { width: 0; }
+      72%, 92% { width: 380px; }
+      95%, 100% { width: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .question, .answer-shell { animation: none; opacity: 1; transform: none; }
+      .reveal-1, .reveal-2, .reveal-3 { animation: none; width: 600px; }
+    }
+  </style>
+
+  <rect width="858" height="720" fill="#f7f7f7"/>
+
+  <g class="question">
+    <rect x="265" y="50" width="565" height="110" rx="26" fill="#fee500"/>
+    <text x="300" y="97" font-size="28" font-weight="600">기분 전환할 만한 선물을</text>
+    <text x="300" y="136" font-size="28" font-weight="600">추천해 줘.</text>
+  </g>
+
+  <g class="answer-shell">
+    <image x="28" y="245" width="96" height="96" href="data:image/jpeg;base64,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"/>
+    <rect x="147" y="220" width="680" height="185" rx="26" fill="#fff"/>
+    <text x="180" y="267" font-size="24" font-weight="700">니쥬</text>
+    <text x="180" y="316" font-size="27" clip-path="url(#line-1)">좋아요! 먼저 취향을 알아볼게요.</text>
+    <text x="180" y="356" font-size="27" clip-path="url(#line-2)">달달한 간식과 향기로운 소품 중</text>
+    <text x="180" y="396" font-size="27" clip-path="url(#line-3)">어떤 쪽이 더 끌리세요?</text>
+  </g>
+
+  <rect x="28" y="610" width="802" height="84" rx="22" fill="#fff" stroke="#d8d8d8" stroke-width="2"/>
+  <rect x="60" y="631" width="3" height="42" rx="1.5" fill="#202020"/>
+  <text x="74" y="666" font-size="29" fill="#969696">메시지 입력</text>
+  <circle cx="782" cy="652" r="32" fill="#dedede"/>
+  <path d="M782 666v-28m0 0-11 11m11-11 11 11" fill="none" stroke="#8b8b8b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
