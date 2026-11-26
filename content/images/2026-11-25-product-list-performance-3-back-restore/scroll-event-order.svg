@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" width="760" height="300" font-family="-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretendard','Noto Sans KR','Malgun Gothic',sans-serif" role="img" aria-label="상세 화면으로 이동할 때의 순서. 위치 3254에서 상품을 누르면 목록이 사라지고 상세 화면이 그려진다. 상세 화면은 짧아서 위치가 0이 되고, 그 뒤 위치 0을 알리는 scroll 이벤트가 도착한다. 스크롤할 때마다 저장하도록 하면 이 알림 때문에 저장값 3254가 0으로 덮어써진다."><title>상세 화면으로 이동할 때의 순서. 위치 3254에서 상품을 누르면 목록이 사라지고 상세 화면이 그려진다. 상세 화면은 짧아서 위치가 0이 되고, 그 뒤 위치 0을 알리는 scroll 이벤트가 도착한다. 스크롤할 때마다 저장하도록 하면 이 알림 때문에 저장값 3254가 0으로 덮어써진다.</title>
+<rect x="0.5" y="0.5" width="759" height="299" rx="16" fill="#ffffff" stroke="#e5e8eb"/>
+<line x1="60" y1="96" x2="700" y2="96" stroke="#e5e8eb" stroke-width="3" stroke-linecap="round"/>
+<circle cx="110" cy="96" r="9" fill="#3182f6"/>
+<circle cx="283" cy="96" r="9" fill="#8b95a1"/>
+<circle cx="456" cy="96" r="9" fill="#8b95a1"/>
+<circle cx="629" cy="96" r="9" fill="#f04452"/>
+<text x="110" y="52" font-size="13" fill="#191f28" font-weight="700" text-anchor="middle">① 상품 클릭</text>
+<text x="110" y="70" font-size="11.5" fill="#8b95a1" text-anchor="middle">위치 3254</text>
+<text x="283" y="52" font-size="13" fill="#191f28" font-weight="700" text-anchor="middle">② 목록 사라짐</text>
+<text x="283" y="70" font-size="11.5" fill="#8b95a1" text-anchor="middle">카드 60개 → 0개</text>
+<text x="456" y="52" font-size="13" fill="#191f28" font-weight="700" text-anchor="middle">③ 상세 화면 그림</text>
+<text x="456" y="70" font-size="11.5" fill="#8b95a1" text-anchor="middle">짧아서 위치 0</text>
+<text x="629" y="52" font-size="13" fill="#d22030" font-weight="700" text-anchor="middle">④ scroll 알림 도착</text>
+<text x="629" y="70" font-size="11.5" fill="#d22030" text-anchor="middle">"위치가 0이 됐어요"</text>
+<text x="40" y="146" font-size="12.5" fill="#4e5968" font-weight="700">저장된 위치</text>
+<rect x="60" y="160" width="473" height="48" rx="12" fill="#e8f3ff" stroke="#c9e2ff" stroke-width="1.5"/>
+<text x="296" y="190" font-size="15" fill="#1b64da" font-weight="700" text-anchor="middle">3254</text>
+<rect x="545" y="160" width="155" height="48" rx="12" fill="#ffeced" stroke="#f04452" stroke-width="1.5"/>
+<text x="622" y="190" font-size="15" fill="#d22030" font-weight="700" text-anchor="middle">0</text>
+<line x1="629" y1="108" x2="629" y2="154" stroke="#f04452" stroke-width="1.5" stroke-dasharray="4 4"/>
+<text x="380" y="248" font-size="13" fill="#191f28" font-weight="700" text-anchor="middle">목록이 사라진 뒤 도착한 마지막 알림이, 적어 둔 3254를 0으로 덮어씀</text>
+<text x="380" y="272" font-size="11.5" fill="#8b95a1" text-anchor="middle">그래서 돌아오면 결국 다시 맨 위에서 시작</text>
+</svg>

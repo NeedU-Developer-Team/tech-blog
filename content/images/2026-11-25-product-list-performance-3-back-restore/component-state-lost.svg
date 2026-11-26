@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" width="760" height="300" font-family="-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretendard','Noto Sans KR','Malgun Gothic',sans-serif" role="img" aria-label="목록 컴포넌트와 상태의 관계. 목록 화면에 있을 때는 목록 컴포넌트가 카테고리 리빙과 예산 13만 원을 기억한다. 상세로 이동하면 목록 컴포넌트가 사라지면서 기억도 함께 사라진다. 돌아오면 새 목록 컴포넌트가 카테고리 전체, 예산 20만 원의 처음 값으로 시작한다."><title>목록 컴포넌트와 상태의 관계. 목록 화면에 있을 때는 목록 컴포넌트가 카테고리 리빙과 예산 13만 원을 기억한다. 상세로 이동하면 목록 컴포넌트가 사라지면서 기억도 함께 사라진다. 돌아오면 새 목록 컴포넌트가 카테고리 전체, 예산 20만 원의 처음 값으로 시작한다.</title>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#8b95a1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect x="0.5" y="0.5" width="759" height="299" rx="16" fill="#ffffff" stroke="#e5e8eb"/>
+<text x="130" y="44" font-size="14" fill="#191f28" font-weight="700" text-anchor="middle">목록 화면</text>
+<text x="380" y="44" font-size="14" fill="#191f28" font-weight="700" text-anchor="middle">상세 화면</text>
+<text x="630" y="44" font-size="14" fill="#191f28" font-weight="700" text-anchor="middle">뒤로가기 후</text>
+<rect x="40" y="64" width="180" height="170" rx="14" fill="#f9fafb" stroke="#e5e8eb" stroke-width="1.5"/>
+<rect x="56" y="80" width="148" height="138" rx="12" fill="#e8f3ff" stroke="#3182f6" stroke-width="1.5"/>
+<text x="130" y="104" font-size="13" fill="#1b64da" font-weight="700" text-anchor="middle">목록 컴포넌트</text>
+<rect x="72" y="118" width="116" height="36" rx="8" fill="#ffffff" stroke="#c9e2ff"/>
+<text x="130" y="141" font-size="12.5" fill="#191f28" text-anchor="middle">카테고리: 리빙</text>
+<rect x="72" y="164" width="116" height="36" rx="8" fill="#ffffff" stroke="#c9e2ff"/>
+<text x="130" y="187" font-size="12.5" fill="#191f28" text-anchor="middle">예산: 13만 원</text>
+<line x1="226" y1="149" x2="282" y2="149" stroke="#8b95a1" stroke-width="1.6" marker-end="url(#arrow)"/>
+<text x="254" y="138" font-size="11.5" fill="#8b95a1" text-anchor="middle">상품 클릭</text>
+<rect x="290" y="64" width="180" height="170" rx="14" fill="#f9fafb" stroke="#e5e8eb" stroke-width="1.5"/>
+<rect x="306" y="80" width="148" height="138" rx="12" fill="none" stroke="#f04452" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="380" y="138" font-size="13" fill="#f04452" font-weight="700" text-anchor="middle">목록 컴포넌트 사라짐</text>
+<text x="380" y="162" font-size="12" fill="#f04452" text-anchor="middle">기억하던 값도 함께 사라짐</text>
+<line x1="476" y1="149" x2="532" y2="149" stroke="#8b95a1" stroke-width="1.6" marker-end="url(#arrow)"/>
+<text x="504" y="138" font-size="11.5" fill="#8b95a1" text-anchor="middle">뒤로가기</text>
+<rect x="540" y="64" width="180" height="170" rx="14" fill="#f9fafb" stroke="#e5e8eb" stroke-width="1.5"/>
+<rect x="556" y="80" width="148" height="138" rx="12" fill="#ffffff" stroke="#b0b8c1" stroke-width="1.5"/>
+<text x="630" y="104" font-size="13" fill="#4e5968" font-weight="700" text-anchor="middle">새 목록 컴포넌트</text>
+<rect x="572" y="118" width="116" height="36" rx="8" fill="#ffeced" stroke="#ffc9cd"/>
+<text x="630" y="141" font-size="12.5" fill="#d22030" text-anchor="middle">카테고리: 전체</text>
+<rect x="572" y="164" width="116" height="36" rx="8" fill="#ffeced" stroke="#ffc9cd"/>
+<text x="630" y="187" font-size="12.5" fill="#d22030" text-anchor="middle">예산: 20만 원</text>
+<text x="380" y="270" font-size="12.5" fill="#4e5968" text-anchor="middle">카테고리와 예산이 목록 컴포넌트의 useState에만 있어서, 컴포넌트가 사라지면 처음 값으로 돌아갑니다</text>
+</svg>

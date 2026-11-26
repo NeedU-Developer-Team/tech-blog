@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="760" height="320" font-family="-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretendard','Noto Sans KR','Malgun Gothic',sans-serif" role="img" aria-label="탭 전환 문제의 원인. 기존 메모지를 통째로 넘기면 Next.js 내부 표시 __NA가 함께 넘어가 Next.js가 직접 처리한 이동으로 여기고 주소 변경을 무시해, 주소만 바뀌고 화면은 그대로다. 우리 이름표만 넘기면 Next.js가 주소 변경을 반영해 공유 탭으로 바뀐다."><title>탭 전환 문제의 원인. 기존 메모지를 통째로 넘기면 Next.js 내부 표시 __NA가 함께 넘어가 Next.js가 직접 처리한 이동으로 여기고 주소 변경을 무시해, 주소만 바뀌고 화면은 그대로다. 우리 이름표만 넘기면 Next.js가 주소 변경을 반영해 공유 탭으로 바뀐다.</title>
+<defs><marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#3182f6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="arrowRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#f04452" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#8b95a1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect x="0.5" y="0.5" width="759" height="319" rx="16" fill="#ffffff" stroke="#e5e8eb"/>
+<text x="40" y="40" font-size="12" fill="#8b95a1">공유 탭을 누르면 history.replaceState(메모지, "", "?tab=shared")로 주소만 바꿈</text>
+<text x="40" y="82" font-size="13.5" fill="#191f28" font-weight="700">기존 메모지를</text>
+<text x="40" y="100" font-size="13.5" fill="#191f28" font-weight="700">통째로 넘기면</text>
+<text x="40" y="120" font-size="11.5" fill="#f04452" font-weight="600">탭이 안 바뀜</text>
+<rect x="160" y="62" width="150" height="72" rx="12" fill="#f9fafb" stroke="#e5e8eb" stroke-width="1.5"/>
+<text x="235" y="84" font-size="12" fill="#4e5968" text-anchor="middle">넘긴 메모지</text>
+<rect x="180" y="94" width="52" height="24" rx="12" fill="#3182f6"/>
+<text x="206" y="110" font-size="10.5" fill="#ffffff" font-weight="700" text-anchor="middle">이름표</text>
+<rect x="238" y="94" width="52" height="24" rx="12" fill="#f04452"/>
+<text x="264" y="110" font-size="10.5" fill="#ffffff" font-weight="700" text-anchor="middle">__NA</text>
+<line x1="316" y1="98" x2="366" y2="98" stroke="#f04452" stroke-width="1.6" marker-end="url(#arrowRed)"/>
+<rect x="374" y="62" width="160" height="72" rx="12" fill="#ffeced" stroke="#ffc9cd" stroke-width="1.5"/>
+<text x="454" y="90" font-size="12.5" fill="#191f28" font-weight="700" text-anchor="middle">Next.js</text>
+<text x="454" y="110" font-size="11.5" fill="#d22030" text-anchor="middle">"내가 처리한 이동"</text>
+<line x1="540" y1="98" x2="590" y2="98" stroke="#f04452" stroke-width="1.6" marker-end="url(#arrowRed)"/>
+<rect x="598" y="62" width="122" height="72" rx="12" fill="#f04452"/>
+<text x="659" y="92" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">주소만 바뀌고</text>
+<text x="659" y="110" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">화면은 그대로</text>
+<line x1="20" y1="166" x2="740" y2="166" stroke="#f2f4f6" stroke-width="1.5"/>
+<text x="40" y="214" font-size="13.5" fill="#191f28" font-weight="700">이름표만</text>
+<text x="40" y="232" font-size="13.5" fill="#191f28" font-weight="700">넘기면</text>
+<text x="40" y="252" font-size="11.5" fill="#1b64da" font-weight="600">탭이 바뀜</text>
+<rect x="160" y="194" width="150" height="72" rx="12" fill="#f9fafb" stroke="#e5e8eb" stroke-width="1.5"/>
+<text x="235" y="216" font-size="12" fill="#4e5968" text-anchor="middle">넘긴 메모지</text>
+<rect x="209" y="226" width="52" height="24" rx="12" fill="#3182f6"/>
+<text x="235" y="242" font-size="10.5" fill="#ffffff" font-weight="700" text-anchor="middle">이름표</text>
+<line x1="316" y1="230" x2="366" y2="230" stroke="#3182f6" stroke-width="1.6" marker-end="url(#arrowBlue)"/>
+<rect x="374" y="194" width="160" height="72" rx="12" fill="#e8f3ff" stroke="#c9e2ff" stroke-width="1.5"/>
+<text x="454" y="222" font-size="12.5" fill="#191f28" font-weight="700" text-anchor="middle">Next.js</text>
+<text x="454" y="242" font-size="11.5" fill="#1b64da" text-anchor="middle">주소 변경을 반영</text>
+<line x1="540" y1="230" x2="590" y2="230" stroke="#3182f6" stroke-width="1.6" marker-end="url(#arrowBlue)"/>
+<rect x="598" y="194" width="122" height="72" rx="12" fill="#3182f6"/>
+<text x="659" y="224" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">공유 탭으로</text>
+<text x="659" y="242" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">화면 전환</text>
+<text x="380" y="298" font-size="11.5" fill="#8b95a1" text-anchor="middle">__NA는 Next.js가 내부에서 쓰는 표시로, 공개된 기능이 아님</text>
+</svg>

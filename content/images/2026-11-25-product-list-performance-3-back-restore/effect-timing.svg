@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="760" height="380" font-family="-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretendard','Noto Sans KR','Malgun Gothic',sans-serif" role="img" aria-label="useEffect와 useLayoutEffect의 실행 시점 비교. useEffect는 화면을 그린 뒤 실행되어, 떠날 때는 알림 받기를 늦게 멈춰 위치 0을 저장할 수 있고, 돌아올 때는 맨 위가 먼저 보인 뒤 이동한다. useLayoutEffect는 그리기 전에 실행되어, 떠날 때 알림 받기를 먼저 멈추고, 돌아올 때 위치를 옮긴 상태로 처음 그린다."><title>useEffect와 useLayoutEffect의 실행 시점 비교. useEffect는 화면을 그린 뒤 실행되어, 떠날 때는 알림 받기를 늦게 멈춰 위치 0을 저장할 수 있고, 돌아올 때는 맨 위가 먼저 보인 뒤 이동한다. useLayoutEffect는 그리기 전에 실행되어, 떠날 때 알림 받기를 먼저 멈추고, 돌아올 때 위치를 옮긴 상태로 처음 그린다.</title>
+<rect x="0.5" y="0.5" width="759" height="379" rx="16" fill="#ffffff" stroke="#e5e8eb"/>
+<text x="300" y="40" font-size="12.5" fill="#4e5968" font-weight="700" text-anchor="middle">상세로 떠날 때</text>
+<text x="590" y="40" font-size="12.5" fill="#4e5968" font-weight="700" text-anchor="middle">목록으로 돌아올 때</text>
+<text x="40" y="96" font-size="13.5" fill="#191f28" font-weight="700">useEffect</text>
+<text x="40" y="114" font-size="11.5" fill="#8b95a1">그린 뒤 실행</text>
+<rect x="160" y="62" width="80" height="34" rx="8" fill="#f2f4f6"/>
+<text x="200" y="84" font-size="11.5" fill="#4e5968" text-anchor="middle">화면 바뀜</text>
+<rect x="246" y="62" width="62" height="34" rx="8" fill="#e5e8eb"/>
+<text x="277" y="84" font-size="11.5" fill="#4e5968" text-anchor="middle">그리기</text>
+<rect x="314" y="62" width="110" height="34" rx="8" fill="#ffeced" stroke="#ffc9cd"/>
+<text x="369" y="84" font-size="11.5" fill="#d22030" text-anchor="middle">알림 받기 멈춤</text>
+<text x="292" y="120" font-size="11.5" fill="#d22030" text-anchor="middle">그 사이 위치 0을 저장할 수 있음</text>
+<rect x="460" y="62" width="62" height="34" rx="8" fill="#e5e8eb"/>
+<text x="491" y="84" font-size="11.5" fill="#4e5968" text-anchor="middle">그리기</text>
+<rect x="528" y="62" width="92" height="34" rx="8" fill="#ffeced" stroke="#ffc9cd"/>
+<text x="574" y="84" font-size="11.5" fill="#d22030" text-anchor="middle">위치 이동</text>
+<rect x="626" y="62" width="94" height="34" rx="8" fill="#e5e8eb"/>
+<text x="673" y="84" font-size="11.5" fill="#4e5968" text-anchor="middle">다시 그리기</text>
+<text x="590" y="120" font-size="11.5" fill="#d22030" text-anchor="middle">맨 위가 잠깐 보였다가 이동</text>
+<line x1="20" y1="150" x2="740" y2="150" stroke="#f2f4f6" stroke-width="1.5"/>
+<text x="40" y="202" font-size="13.5" fill="#191f28" font-weight="700">useLayoutEffect</text>
+<text x="40" y="220" font-size="11.5" fill="#8b95a1">그리기 직전 실행</text>
+<rect x="160" y="168" width="80" height="34" rx="8" fill="#f2f4f6"/>
+<text x="200" y="190" font-size="11.5" fill="#4e5968" text-anchor="middle">화면 바뀜</text>
+<rect x="246" y="168" width="110" height="34" rx="8" fill="#e8f3ff" stroke="#c9e2ff"/>
+<text x="301" y="190" font-size="11.5" fill="#1b64da" text-anchor="middle">알림 받기 멈춤</text>
+<rect x="362" y="168" width="62" height="34" rx="8" fill="#e5e8eb"/>
+<text x="393" y="190" font-size="11.5" fill="#4e5968" text-anchor="middle">그리기</text>
+<text x="292" y="226" font-size="11.5" fill="#1b64da" text-anchor="middle">위치 0 알림을 받지 않음</text>
+<rect x="460" y="168" width="92" height="34" rx="8" fill="#e8f3ff" stroke="#c9e2ff"/>
+<text x="506" y="190" font-size="11.5" fill="#1b64da" text-anchor="middle">위치 이동</text>
+<rect x="558" y="168" width="62" height="34" rx="8" fill="#e5e8eb"/>
+<text x="589" y="190" font-size="11.5" fill="#4e5968" text-anchor="middle">그리기</text>
+<text x="590" y="226" font-size="11.5" fill="#1b64da" text-anchor="middle">처음부터 보던 위치로 그림</text>
+<rect x="40" y="262" width="680" height="94" rx="12" fill="#f9fafb" stroke="#e5e8eb" stroke-width="1.5"/>
+<text x="60" y="290" font-size="12.5" fill="#191f28" font-weight="700">정리</text>
+<text x="60" y="314" font-size="12" fill="#4e5968">· 떠날 때: 목록이 사라지는 순간 알림 받기를 먼저 멈춰서, 저장값이 0으로 덮어써지지 않음</text>
+<text x="60" y="336" font-size="12" fill="#4e5968">· 돌아올 때: 위치를 옮긴 다음 처음 그려서, 맨 위가 먼저 보이지 않음</text>
+</svg>

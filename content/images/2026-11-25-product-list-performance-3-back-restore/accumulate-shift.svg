@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="760" height="380" font-family="-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretendard','Noto Sans KR','Malgun Gothic',sans-serif" role="img" aria-label="새 상품이 끼어들 때의 스크롤 위치. 분석 확정 전에는 저장한 위치에 상품 C가 있다. 확정 후 점수 순서에 따라 위쪽에 새 상품이 끼어들면, 같은 위치에 상품 C가 아닌 다른 상품이 보인다."><title>새 상품이 끼어들 때의 스크롤 위치. 분석 확정 전에는 저장한 위치에 상품 C가 있다. 확정 후 점수 순서에 따라 위쪽에 새 상품이 끼어들면, 같은 위치에 상품 C가 아닌 다른 상품이 보인다.</title>
+<rect x="0.5" y="0.5" width="759" height="379" rx="16" fill="#ffffff" stroke="#e5e8eb"/>
+<text x="230" y="40" font-size="14" fill="#191f28" font-weight="700" text-anchor="middle">분석 확정 전</text>
+<text x="530" y="40" font-size="14" fill="#191f28" font-weight="700" text-anchor="middle">분석 확정 후 (다시 받은 목록)</text>
+<rect x="150" y="60" width="160" height="40" rx="10" fill="#f2f4f6"/>
+<text x="230" y="85" font-size="12.5" fill="#4e5968" text-anchor="middle">상품 A · 90점</text>
+<rect x="150" y="108" width="160" height="40" rx="10" fill="#f2f4f6"/>
+<text x="230" y="133" font-size="12.5" fill="#4e5968" text-anchor="middle">상품 B · 80점</text>
+<rect x="150" y="156" width="160" height="40" rx="10" fill="#e8f3ff" stroke="#3182f6" stroke-width="1.5"/>
+<text x="230" y="181" font-size="12.5" fill="#1b64da" font-weight="700" text-anchor="middle">상품 C · 70점</text>
+<rect x="150" y="204" width="160" height="40" rx="10" fill="#f2f4f6"/>
+<text x="230" y="229" font-size="12.5" fill="#4e5968" text-anchor="middle">상품 D · 60점</text>
+<rect x="450" y="60" width="160" height="40" rx="10" fill="#f2f4f6"/>
+<text x="530" y="85" font-size="12.5" fill="#4e5968" text-anchor="middle">상품 A · 90점</text>
+<rect x="450" y="108" width="160" height="40" rx="10" fill="#fff4e6" stroke="#ff9f0a" stroke-width="1.5"/>
+<text x="530" y="133" font-size="12.5" fill="#c66b00" font-weight="700" text-anchor="middle">새 상품 · 85점</text>
+<rect x="450" y="156" width="160" height="40" rx="10" fill="#ffeced" stroke="#f04452" stroke-width="1.5"/>
+<text x="530" y="181" font-size="12.5" fill="#d22030" font-weight="700" text-anchor="middle">상품 B · 80점</text>
+<rect x="450" y="204" width="160" height="40" rx="10" fill="#fff4e6" stroke="#ff9f0a" stroke-width="1.5"/>
+<text x="530" y="229" font-size="12.5" fill="#c66b00" font-weight="700" text-anchor="middle">새 상품 · 75점</text>
+<rect x="450" y="252" width="160" height="40" rx="10" fill="#f2f4f6"/>
+<text x="530" y="277" font-size="12.5" fill="#4e5968" text-anchor="middle">상품 C · 70점</text>
+<path d="M136 176 H150 M310 176 H450 M610 176 H720" fill="none" stroke="#f04452" stroke-width="1.5" stroke-dasharray="6 5"/>
+<rect x="40" y="164" width="96" height="24" rx="12" fill="#f04452"/>
+<text x="88" y="180" font-size="11" fill="#ffffff" font-weight="700" text-anchor="middle">저장한 위치</text>
+<text x="380" y="326" font-size="13" fill="#191f28" font-weight="700" text-anchor="middle">위치 숫자는 같아도, 위쪽에 새 상품이 끼어들면 보던 상품 C가 아니라 B가 보임</text>
+<text x="380" y="350" font-size="11.5" fill="#8b95a1" text-anchor="middle">목록은 추천 점수 순서라, 새 상품이 맨 뒤가 아닌 기존 상품 사이에 들어감</text>
+</svg>

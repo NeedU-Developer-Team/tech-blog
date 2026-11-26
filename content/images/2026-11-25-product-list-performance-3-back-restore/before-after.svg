@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" width="760" height="400" font-family="-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretendard','Noto Sans KR','Malgun Gothic',sans-serif" role="img" aria-label="세 구조 비교. 개선 전에는 목록 컴포넌트와 함께 필터와 위치가 사라져 맨 위에서 시작한다. 스크롤할 때마다 위치만 적으면 떠나는 순간의 0이 덮어써져 여전히 맨 위에서 시작한다. 지금 구조는 방문 기록 이름표로 구분해 그리기 전에 복원하고, 5분 동안 목록을 붙잡아 떠날 때와 같은 위치로 돌아온다."><title>세 구조 비교. 개선 전에는 목록 컴포넌트와 함께 필터와 위치가 사라져 맨 위에서 시작한다. 스크롤할 때마다 위치만 적으면 떠나는 순간의 0이 덮어써져 여전히 맨 위에서 시작한다. 지금 구조는 방문 기록 이름표로 구분해 그리기 전에 복원하고, 5분 동안 목록을 붙잡아 떠날 때와 같은 위치로 돌아온다.</title>
+<defs><marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#b0b8c1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect x="0.5" y="0.5" width="759" height="399" rx="16" fill="#ffffff" stroke="#e5e8eb"/>
+<text x="272" y="40" font-size="12" fill="#8b95a1" font-weight="600" text-anchor="middle">상품 클릭</text>
+<text x="420" y="40" font-size="12" fill="#8b95a1" font-weight="600" text-anchor="middle">뒤로가기</text>
+<text x="630" y="40" font-size="12" fill="#8b95a1" font-weight="600" text-anchor="middle">돌아온 화면</text>
+<line x1="20" y1="54" x2="740" y2="54" stroke="#f2f4f6" stroke-width="1.5"/>
+<text x="40" y="96" font-size="13.5" fill="#191f28" font-weight="700">아무것도 안 적음</text>
+<text x="40" y="116" font-size="11.5" fill="#f04452" font-weight="600">개선 전</text>
+<rect x="200" y="76" width="144" height="52" rx="10" fill="#f9fafb" stroke="#e5e8eb" stroke-width="1.5"/>
+<text x="272" y="98" font-size="11.5" fill="#4e5968" text-anchor="middle">목록 컴포넌트와 함께</text>
+<text x="272" y="116" font-size="11.5" fill="#4e5968" text-anchor="middle">필터·위치가 사라짐</text>
+<line x1="350" y1="102" x2="490" y2="102" stroke="#b0b8c1" stroke-width="1.6" marker-end="url(#arrowGray)"/>
+<text x="420" y="94" font-size="11" fill="#8b95a1" text-anchor="middle">복원할 값 없음</text>
+<rect x="500" y="76" width="220" height="52" rx="10" fill="#ffeced" stroke="#ffc9cd" stroke-width="1.5"/>
+<text x="610" y="98" font-size="12" fill="#d22030" font-weight="700" text-anchor="middle">전체 · 20만 원 · 맨 위</text>
+<text x="610" y="116" font-size="11" fill="#d22030" text-anchor="middle">처음부터 다시 찾기</text>
+<line x1="20" y1="148" x2="740" y2="148" stroke="#f2f4f6" stroke-width="1.5"/>
+<text x="40" y="190" font-size="13.5" fill="#191f28" font-weight="700">위치만 적음</text>
+<text x="40" y="210" font-size="11.5" fill="#f04452" font-weight="600">처음 떠올린 방법</text>
+<rect x="200" y="170" width="144" height="52" rx="10" fill="#f9fafb" stroke="#e5e8eb" stroke-width="1.5"/>
+<text x="272" y="192" font-size="11.5" fill="#4e5968" text-anchor="middle">저장값 3254 →</text>
+<text x="272" y="210" font-size="11.5" fill="#d22030" font-weight="700" text-anchor="middle">떠나는 순간 0으로</text>
+<line x1="350" y1="196" x2="490" y2="196" stroke="#b0b8c1" stroke-width="1.6" marker-end="url(#arrowGray)"/>
+<text x="420" y="188" font-size="11" fill="#8b95a1" text-anchor="middle">0으로 복원</text>
+<rect x="500" y="170" width="220" height="52" rx="10" fill="#ffeced" stroke="#ffc9cd" stroke-width="1.5"/>
+<text x="610" y="192" font-size="12" fill="#d22030" font-weight="700" text-anchor="middle">여전히 맨 위</text>
+<text x="610" y="210" font-size="11" fill="#d22030" text-anchor="middle">새로 들어올 때도 값이 섞일 수 있음</text>
+<line x1="20" y1="242" x2="740" y2="242" stroke="#f2f4f6" stroke-width="1.5"/>
+<text x="40" y="284" font-size="13.5" fill="#191f28" font-weight="700">지금 구조</text>
+<text x="40" y="304" font-size="11.5" fill="#1b64da" font-weight="600">이름표 + 그리기 전 처리</text>
+<rect x="200" y="258" width="144" height="70" rx="10" fill="#e8f3ff" stroke="#c9e2ff" stroke-width="1.5"/>
+<text x="272" y="280" font-size="11.5" fill="#1b64da" text-anchor="middle">이름표 A에 저장</text>
+<text x="272" y="298" font-size="11.5" fill="#1b64da" text-anchor="middle">사라지는 순간 기록 중지</text>
+<text x="272" y="316" font-size="11.5" fill="#1b64da" text-anchor="middle">목록은 5분 보관</text>
+<line x1="350" y1="293" x2="490" y2="293" stroke="#b0b8c1" stroke-width="1.6" marker-end="url(#arrowGray)"/>
+<text x="420" y="285" font-size="11" fill="#8b95a1" text-anchor="middle">그리기 전에 복원</text>
+<rect x="500" y="258" width="220" height="70" rx="10" fill="#3182f6"/>
+<text x="610" y="286" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">리빙 · 13만 원 · 3254</text>
+<text x="610" y="306" font-size="11" fill="#ffffff" text-anchor="middle">떠날 때와 같은 위치</text>
+<text x="380" y="368" font-size="12" fill="#8b95a1" text-anchor="middle">같은 "떠날 때 적어 두기"라도, 누구의 기록인지와 언제 멈추는지에 따라 결과가 달라짐</text>
+</svg>

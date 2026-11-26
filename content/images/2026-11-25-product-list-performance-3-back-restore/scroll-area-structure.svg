@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" width="760" height="360" font-family="-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretendard','Noto Sans KR','Malgun Gothic',sans-serif" role="img" aria-label="일반 페이지와 NeedU 화면 구조 비교. 일반 페이지는 페이지 전체가 스크롤되어 브라우저가 뒤로가기 때 위치를 기억한다. NeedU는 헤더와 하단 메뉴가 고정되고 가운데 영역만 스크롤되어, 브라우저가 위치를 기억하지 않는다."><title>일반 페이지와 NeedU 화면 구조 비교. 일반 페이지는 페이지 전체가 스크롤되어 브라우저가 뒤로가기 때 위치를 기억한다. NeedU는 헤더와 하단 메뉴가 고정되고 가운데 영역만 스크롤되어, 브라우저가 위치를 기억하지 않는다.</title>
+<rect x="0.5" y="0.5" width="759" height="359" rx="16" fill="#ffffff" stroke="#e5e8eb"/>
+<text x="190" y="40" font-size="14" fill="#191f28" font-weight="700" text-anchor="middle">일반 페이지</text>
+<text x="570" y="40" font-size="14" fill="#191f28" font-weight="700" text-anchor="middle">NeedU 상품 목록</text>
+<line x1="380" y1="24" x2="380" y2="336" stroke="#f2f4f6" stroke-width="1.5"/>
+<rect x="120" y="58" width="140" height="230" rx="18" fill="#f9fafb" stroke="#b0b8c1" stroke-width="2"/>
+<rect x="132" y="72" width="116" height="20" rx="5" fill="#e8f3ff"/>
+<rect x="132" y="100" width="54" height="44" rx="6" fill="#e8f3ff"/>
+<rect x="194" y="100" width="54" height="44" rx="6" fill="#e8f3ff"/>
+<rect x="132" y="152" width="54" height="44" rx="6" fill="#e8f3ff"/>
+<rect x="194" y="152" width="54" height="44" rx="6" fill="#e8f3ff"/>
+<rect x="132" y="204" width="54" height="44" rx="6" fill="#e8f3ff"/>
+<rect x="194" y="204" width="54" height="44" rx="6" fill="#e8f3ff"/>
+<rect x="132" y="256" width="116" height="20" rx="5" fill="#e8f3ff"/>
+<rect x="268" y="70" width="5" height="206" rx="2.5" fill="#e5e8eb"/>
+<rect x="268" y="110" width="5" height="70" rx="2.5" fill="#3182f6"/>
+<text x="285" y="150" font-size="11.5" fill="#1b64da">전체 스크롤</text>
+<text x="190" y="314" font-size="12.5" fill="#1b64da" font-weight="700" text-anchor="middle">브라우저가 위치를 기억함</text>
+<rect x="500" y="58" width="140" height="230" rx="18" fill="#f9fafb" stroke="#b0b8c1" stroke-width="2"/>
+<rect x="512" y="70" width="116" height="26" rx="6" fill="#e5e8eb"/>
+<text x="570" y="88" font-size="11" fill="#4e5968" text-anchor="middle">헤더 (고정)</text>
+<rect x="512" y="102" width="116" height="140" rx="6" fill="#fff4e6" stroke="#ff9f0a" stroke-width="1.5"/>
+<rect x="520" y="110" width="48" height="36" rx="5" fill="#ffe1b8"/>
+<rect x="572" y="110" width="48" height="36" rx="5" fill="#ffe1b8"/>
+<rect x="520" y="152" width="48" height="36" rx="5" fill="#ffe1b8"/>
+<rect x="572" y="152" width="48" height="36" rx="5" fill="#ffe1b8"/>
+<rect x="520" y="194" width="48" height="36" rx="5" fill="#ffe1b8"/>
+<rect x="572" y="194" width="48" height="36" rx="5" fill="#ffe1b8"/>
+<rect x="512" y="248" width="116" height="26" rx="6" fill="#e5e8eb"/>
+<text x="570" y="266" font-size="11" fill="#4e5968" text-anchor="middle">하단 메뉴 (고정)</text>
+<rect x="648" y="104" width="5" height="136" rx="2.5" fill="#ffe1b8"/>
+<rect x="648" y="130" width="5" height="46" rx="2.5" fill="#ff9f0a"/>
+<text x="660" y="168" font-size="11.5" fill="#c66b00">가운데만</text>
+<text x="660" y="184" font-size="11.5" fill="#c66b00">스크롤</text>
+<text x="570" y="314" font-size="12.5" fill="#d22030" font-weight="700" text-anchor="middle">브라우저가 위치를 기억하지 않음</text>
+<text x="570" y="334" font-size="11.5" fill="#8b95a1" text-anchor="middle">위치를 직접 기억하고 되돌려야 함</text>
+</svg>

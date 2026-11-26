@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" width="760" height="360" font-family="-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretendard','Noto Sans KR','Malgun Gothic',sans-serif" role="img" aria-label="뒤로가기로 돌아올 때의 세 가지 경우. 5분 안에 돌아오면 보관함에 목록이 있어 다시 요청하지 않고 위치를 정확히 복원한다. 5분이 지나 보관함이 비었으면 일부 페이지만 있어 위치가 앞쪽으로 당겨진다. 분석을 확정했으면 보관함과 복원값을 지워 새 목록을 맨 위부터 보여 준다."><title>뒤로가기로 돌아올 때의 세 가지 경우. 5분 안에 돌아오면 보관함에 목록이 있어 다시 요청하지 않고 위치를 정확히 복원한다. 5분이 지나 보관함이 비었으면 일부 페이지만 있어 위치가 앞쪽으로 당겨진다. 분석을 확정했으면 보관함과 복원값을 지워 새 목록을 맨 위부터 보여 준다.</title>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#b0b8c1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect x="0.5" y="0.5" width="759" height="359" rx="16" fill="#ffffff" stroke="#e5e8eb"/>
+<rect x="270" y="28" width="220" height="44" rx="12" fill="#191f28"/>
+<text x="380" y="56" font-size="13" fill="#ffffff" font-weight="700" text-anchor="middle">뒤로가기로 목록에 돌아옴</text>
+<path d="M380 72 V92 H140 V112" fill="none" stroke="#b0b8c1" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M380 72 V112" fill="none" stroke="#b0b8c1" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M380 92 H620 V112" fill="none" stroke="#b0b8c1" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="40" y="118" width="200" height="40" rx="20" fill="#e8f3ff"/>
+<text x="140" y="143" font-size="12.5" fill="#1b64da" font-weight="700" text-anchor="middle">5분 안에 돌아옴</text>
+<rect x="280" y="118" width="200" height="40" rx="20" fill="#fff4e6"/>
+<text x="380" y="143" font-size="12.5" fill="#c66b00" font-weight="700" text-anchor="middle">5분이 지나서 돌아옴</text>
+<rect x="520" y="118" width="200" height="40" rx="20" fill="#f1edff"/>
+<text x="620" y="143" font-size="12.5" fill="#6b4ce6" font-weight="700" text-anchor="middle">취향 분석을 확정함</text>
+<rect x="40" y="172" width="200" height="88" rx="12" fill="#f9fafb" stroke="#e5e8eb" stroke-width="1.5"/>
+<text x="140" y="200" font-size="12" fill="#4e5968" text-anchor="middle">보관함에 받아 둔 목록이</text>
+<text x="140" y="218" font-size="12" fill="#4e5968" text-anchor="middle">그대로 있음</text>
+<text x="140" y="244" font-size="11.5" fill="#8b95a1" text-anchor="middle">staleTime 5분 이내</text>
+<rect x="280" y="172" width="200" height="88" rx="12" fill="#f9fafb" stroke="#e5e8eb" stroke-width="1.5"/>
+<text x="380" y="200" font-size="12" fill="#4e5968" text-anchor="middle">보관함이 비워져</text>
+<text x="380" y="218" font-size="12" fill="#4e5968" text-anchor="middle">첫 페이지만 남음</text>
+<text x="380" y="244" font-size="11.5" fill="#8b95a1" text-anchor="middle">gcTime 5분이 지남</text>
+<rect x="520" y="172" width="200" height="88" rx="12" fill="#f9fafb" stroke="#e5e8eb" stroke-width="1.5"/>
+<text x="620" y="200" font-size="12" fill="#4e5968" text-anchor="middle">보관함과 저장해 둔</text>
+<text x="620" y="218" font-size="12" fill="#4e5968" text-anchor="middle">필터·위치를 모두 지움</text>
+<text x="620" y="244" font-size="11.5" fill="#8b95a1" text-anchor="middle">새 상품이 쌓였기 때문</text>
+<rect x="40" y="274" width="200" height="56" rx="12" fill="#3182f6"/>
+<text x="140" y="298" font-size="12.5" fill="#ffffff" font-weight="700" text-anchor="middle">재요청 없이</text>
+<text x="140" y="316" font-size="12.5" fill="#ffffff" font-weight="700" text-anchor="middle">보던 위치 그대로</text>
+<rect x="280" y="274" width="200" height="56" rx="12" fill="#ff9f0a"/>
+<text x="380" y="298" font-size="12.5" fill="#ffffff" font-weight="700" text-anchor="middle">첫 페이지 높이까지만</text>
+<text x="380" y="316" font-size="12.5" fill="#ffffff" font-weight="700" text-anchor="middle">위치가 앞으로 당겨짐</text>
+<rect x="520" y="274" width="200" height="56" rx="12" fill="#6b4ce6"/>
+<text x="620" y="298" font-size="12.5" fill="#ffffff" font-weight="700" text-anchor="middle">새 목록을</text>
+<text x="620" y="316" font-size="12.5" fill="#ffffff" font-weight="700" text-anchor="middle">맨 위부터 보여 줌</text>
+</svg>
