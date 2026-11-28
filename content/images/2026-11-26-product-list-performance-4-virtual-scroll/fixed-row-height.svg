@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" width="760" height="360" font-family="-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretendard','Noto Sans KR','Malgun Gothic',sans-serif" role="img" aria-label="줄 높이 통일. 상품명이 한 줄인 카드와 두 줄인 카드가 섞이면 줄마다 높이가 달라진다. 상품명 영역을 항상 두 줄 높이로 확보하면 모든 줄의 높이가 같아진다."><title>줄 높이 통일. 상품명이 한 줄인 카드와 두 줄인 카드가 섞이면 줄마다 높이가 달라진다. 상품명 영역을 항상 두 줄 높이로 확보하면 모든 줄의 높이가 같아진다.</title>
+<rect x="0.5" y="0.5" width="759" height="359" rx="16" fill="#ffffff" stroke="#e5e8eb"/>
+<text x="200" y="40" font-size="14" fill="#191f28" font-weight="700" text-anchor="middle">개선 전: 줄마다 높이가 다름</text>
+<text x="560" y="40" font-size="14" fill="#191f28" font-weight="700" text-anchor="middle">상품명 2줄 높이 확보</text>
+<line x1="380" y1="24" x2="380" y2="336" stroke="#f2f4f6" stroke-width="1.5"/>
+<g><rect x="70" y="60" width="80" height="60" rx="6" fill="#e5e8eb"/><rect x="160" y="60" width="80" height="60" rx="6" fill="#e5e8eb"/><rect x="250" y="60" width="80" height="60" rx="6" fill="#e5e8eb"/>
+<rect x="70" y="126" width="70" height="8" rx="3" fill="#b0b8c1"/><rect x="160" y="126" width="70" height="8" rx="3" fill="#b0b8c1"/><rect x="250" y="126" width="70" height="8" rx="3" fill="#b0b8c1"/>
+<rect x="70" y="140" width="50" height="8" rx="3" fill="#191f28"/><rect x="160" y="140" width="50" height="8" rx="3" fill="#191f28"/><rect x="250" y="140" width="50" height="8" rx="3" fill="#191f28"/></g>
+<text x="40" y="108" font-size="11" fill="#d22030" text-anchor="middle">A</text>
+<g><rect x="70" y="170" width="80" height="60" rx="6" fill="#e5e8eb"/><rect x="160" y="170" width="80" height="60" rx="6" fill="#e5e8eb"/><rect x="250" y="170" width="80" height="60" rx="6" fill="#e5e8eb"/>
+<rect x="70" y="236" width="70" height="8" rx="3" fill="#b0b8c1"/><rect x="70" y="248" width="60" height="8" rx="3" fill="#f04452"/><rect x="160" y="236" width="70" height="8" rx="3" fill="#b0b8c1"/><rect x="250" y="236" width="70" height="8" rx="3" fill="#b0b8c1"/>
+<rect x="70" y="262" width="50" height="8" rx="3" fill="#191f28"/><rect x="160" y="262" width="50" height="8" rx="3" fill="#191f28"/><rect x="250" y="262" width="50" height="8" rx="3" fill="#191f28"/></g>
+<text x="40" y="218" font-size="11" fill="#d22030" text-anchor="middle">B</text>
+<path d="M340 60 H346 V148 H340" fill="none" stroke="#8b95a1" stroke-width="1.5"/><text x="352" y="108" font-size="10.5" fill="#8b95a1">낮음</text>
+<path d="M340 170 H346 V270 H340" fill="none" stroke="#f04452" stroke-width="1.5"/><text x="352" y="224" font-size="10.5" fill="#d22030">높음</text>
+<text x="200" y="300" font-size="12" fill="#d22030" font-weight="700" text-anchor="middle">상품명이 2줄인 카드가 있는 줄만 더 높음</text>
+<text x="200" y="320" font-size="11" fill="#8b95a1" text-anchor="middle">그리지 않은 줄의 높이를 알 수 없음</text>
+<g><rect x="430" y="60" width="80" height="60" rx="6" fill="#e5e8eb"/><rect x="520" y="60" width="80" height="60" rx="6" fill="#e5e8eb"/><rect x="610" y="60" width="80" height="60" rx="6" fill="#e5e8eb"/>
+<rect x="430" y="126" width="80" height="22" rx="4" fill="#e8f3ff"/><rect x="520" y="126" width="80" height="22" rx="4" fill="#e8f3ff"/><rect x="610" y="126" width="80" height="22" rx="4" fill="#e8f3ff"/>
+<rect x="434" y="130" width="70" height="7" rx="3" fill="#b0b8c1"/><rect x="524" y="130" width="70" height="7" rx="3" fill="#b0b8c1"/><rect x="614" y="130" width="70" height="7" rx="3" fill="#b0b8c1"/>
+<rect x="430" y="154" width="50" height="8" rx="3" fill="#191f28"/><rect x="520" y="154" width="50" height="8" rx="3" fill="#191f28"/><rect x="610" y="154" width="50" height="8" rx="3" fill="#191f28"/></g>
+<g><rect x="430" y="176" width="80" height="60" rx="6" fill="#e5e8eb"/><rect x="520" y="176" width="80" height="60" rx="6" fill="#e5e8eb"/><rect x="610" y="176" width="80" height="60" rx="6" fill="#e5e8eb"/>
+<rect x="430" y="242" width="80" height="22" rx="4" fill="#e8f3ff"/><rect x="520" y="242" width="80" height="22" rx="4" fill="#e8f3ff"/><rect x="610" y="242" width="80" height="22" rx="4" fill="#e8f3ff"/>
+<rect x="434" y="246" width="70" height="7" rx="3" fill="#b0b8c1"/><rect x="434" y="255" width="60" height="7" rx="3" fill="#b0b8c1"/><rect x="524" y="246" width="70" height="7" rx="3" fill="#b0b8c1"/><rect x="614" y="246" width="70" height="7" rx="3" fill="#b0b8c1"/>
+<rect x="430" y="270" width="50" height="8" rx="3" fill="#191f28"/><rect x="520" y="270" width="50" height="8" rx="3" fill="#191f28"/><rect x="610" y="270" width="50" height="8" rx="3" fill="#191f28"/></g>
+<text x="560" y="300" font-size="12" fill="#1b64da" font-weight="700" text-anchor="middle">모든 줄의 높이가 같음 (약 203px)</text>
+<text x="560" y="320" font-size="11" fill="#8b95a1" text-anchor="middle">한 줄만 재서 전체에 적용 · 파란 칸이 2줄 높이</text>
+</svg>

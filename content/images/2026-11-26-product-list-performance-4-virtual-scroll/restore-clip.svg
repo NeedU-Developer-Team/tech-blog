@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="760" height="380" font-family="-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretendard','Noto Sans KR','Malgun Gothic',sans-serif" role="img" aria-label="복원 위치가 잘리는 이유. 돌아온 직후 추정 줄 높이로 계산한 전체 길이가 실제보다 짧으면, 저장한 위치까지 내려갈 수 없어 중간에서 멈춘다. 마지막으로 잰 줄 높이를 보관해 두면 돌아온 첫 순간부터 실제 길이로 계산해 저장한 위치까지 이동한다."><title>복원 위치가 잘리는 이유. 돌아온 직후 추정 줄 높이로 계산한 전체 길이가 실제보다 짧으면, 저장한 위치까지 내려갈 수 없어 중간에서 멈춘다. 마지막으로 잰 줄 높이를 보관해 두면 돌아온 첫 순간부터 실제 길이로 계산해 저장한 위치까지 이동한다.</title>
+<rect x="0.5" y="0.5" width="759" height="379" rx="16" fill="#ffffff" stroke="#e5e8eb"/>
+<text x="200" y="40" font-size="14" fill="#191f28" font-weight="700" text-anchor="middle">추정 높이로 계산하면</text>
+<text x="560" y="40" font-size="14" fill="#191f28" font-weight="700" text-anchor="middle">마지막으로 잰 높이를 쓰면</text>
+<line x1="380" y1="24" x2="380" y2="356" stroke="#f2f4f6" stroke-width="1.5"/>
+<rect x="150" y="60" width="100" height="200" rx="8" fill="#ffeced" stroke="#ffc9cd" stroke-width="1.5"/>
+<text x="200" y="150" font-size="11.5" fill="#d22030" text-anchor="middle">추정한</text>
+<text x="200" y="168" font-size="11.5" fill="#d22030" text-anchor="middle">전체 길이</text>
+<rect x="150" y="260" width="100" height="40" rx="0" fill="none" stroke="#b0b8c1" stroke-dasharray="4 4"/>
+<text x="200" y="285" font-size="10.5" fill="#8b95a1" text-anchor="middle">실제는 더 김</text>
+<line x1="110" y1="280" x2="146" y2="280" stroke="#3182f6" stroke-width="2"/>
+<text x="104" y="284" font-size="11" fill="#1b64da" text-anchor="end">저장한 위치</text>
+<line x1="110" y1="250" x2="146" y2="250" stroke="#f04452" stroke-width="2"/>
+<text x="104" y="254" font-size="11" fill="#d22030" text-anchor="end">멈춘 위치</text>
+<text x="200" y="330" font-size="12" fill="#d22030" font-weight="700" text-anchor="middle">끝까지 내려가지 못하고 잘림</text>
+<rect x="510" y="60" width="100" height="240" rx="8" fill="#e8f3ff" stroke="#c9e2ff" stroke-width="1.5"/>
+<text x="560" y="170" font-size="11.5" fill="#1b64da" text-anchor="middle">실제와 같은</text>
+<text x="560" y="188" font-size="11.5" fill="#1b64da" text-anchor="middle">전체 길이</text>
+<line x1="470" y1="280" x2="506" y2="280" stroke="#3182f6" stroke-width="2"/>
+<text x="464" y="284" font-size="11" fill="#1b64da" text-anchor="end">저장한 위치</text>
+<text x="630" y="284" font-size="11" fill="#1b64da">그대로 도착</text>
+<text x="560" y="330" font-size="12" fill="#1b64da" font-weight="700" text-anchor="middle">lastMeasuredRowHeight를 첫 값으로 사용</text>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="760" height="380" font-family="-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretendard','Noto Sans KR','Malgun Gothic',sans-serif" role="img" aria-label="카드가 쌓이는 구조. 무한 스크롤로 20개씩 불러온 카드가 지워지지 않고 계속 쌓여, 200장일 때보다 5,000장일 때 화면에 남아 있는 카드와 DOM 노드가 훨씬 많다. 실제로 화면에 보이는 카드는 한 화면 분량뿐이다."><title>카드가 쌓이는 구조. 무한 스크롤로 20개씩 불러온 카드가 지워지지 않고 계속 쌓여, 200장일 때보다 5,000장일 때 화면에 남아 있는 카드와 DOM 노드가 훨씬 많다. 실제로 화면에 보이는 카드는 한 화면 분량뿐이다.</title>
+<rect x="0.5" y="0.5" width="759" height="379" rx="16" fill="#ffffff" stroke="#e5e8eb"/>
+<text x="200" y="40" font-size="14" fill="#191f28" font-weight="700" text-anchor="middle">200장까지 불러왔을 때</text>
+<text x="560" y="40" font-size="14" fill="#191f28" font-weight="700" text-anchor="middle">5,000장까지 불러왔을 때</text>
+<line x1="380" y1="24" x2="380" y2="356" stroke="#f2f4f6" stroke-width="1.5"/>
+<rect x="140" y="58" width="120" height="110" rx="6" fill="#ffeced" stroke="#ffc9cd"/>
+<text x="200" y="118" font-size="11.5" fill="#d22030" text-anchor="middle">지나간 카드</text>
+<rect x="132" y="172" width="136" height="64" rx="10" fill="#e8f3ff" stroke="#3182f6" stroke-width="2"/>
+<text x="200" y="200" font-size="12" fill="#1b64da" font-weight="700" text-anchor="middle">지금 보이는 화면</text>
+<text x="200" y="218" font-size="11" fill="#1b64da" text-anchor="middle">카드 9장 정도</text>
+<rect x="140" y="240" width="120" height="20" rx="6" fill="#ffeced" stroke="#ffc9cd"/>
+<text x="200" y="286" font-size="12.5" fill="#191f28" font-weight="700" text-anchor="middle">DOM 노드 2,274개</text>
+<text x="200" y="306" font-size="11.5" fill="#8b95a1" text-anchor="middle">메모리 22.1MB · 돌아오는 시간 263ms</text>
+<rect x="500" y="58" width="120" height="196" rx="6" fill="#ffeced" stroke="#ffc9cd"/>
+<text x="560" y="96" font-size="11.5" fill="#d22030" text-anchor="middle">지나간 카드</text>
+<text x="560" y="114" font-size="11.5" fill="#d22030" text-anchor="middle">수천 장이</text>
+<text x="560" y="132" font-size="11.5" fill="#d22030" text-anchor="middle">그대로 남아 있음</text>
+<rect x="492" y="172" width="136" height="64" rx="10" fill="#e8f3ff" stroke="#3182f6" stroke-width="2"/>
+<text x="560" y="200" font-size="12" fill="#1b64da" font-weight="700" text-anchor="middle">지금 보이는 화면</text>
+<text x="560" y="218" font-size="11" fill="#1b64da" text-anchor="middle">카드 9장 정도</text>
+<text x="560" y="286" font-size="12.5" fill="#d22030" font-weight="700" text-anchor="middle">DOM 노드 50,271개</text>
+<text x="560" y="306" font-size="11.5" fill="#8b95a1" text-anchor="middle">메모리 193MB · 돌아오는 시간 5,038ms</text>
+<text x="380" y="346" font-size="12" fill="#4e5968" text-anchor="middle">보이는 카드는 같은데, 들고 있는 카드는 불러온 만큼 계속 늘어남</text>
+</svg>

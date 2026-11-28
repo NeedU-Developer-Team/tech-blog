@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" width="760" height="400" font-family="-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretendard','Noto Sans KR','Malgun Gothic',sans-serif" role="img" aria-label="가상 스크롤 개념. 목록 전체 높이는 5,000장 기준으로 유지하지만, 실제로 그리는 것은 지금 보이는 화면과 위아래 몇 줄뿐이다. 나머지는 빈 공간으로 높이만 차지하고, 스크롤하면 그리는 줄이 바뀐다."><title>가상 스크롤 개념. 목록 전체 높이는 5,000장 기준으로 유지하지만, 실제로 그리는 것은 지금 보이는 화면과 위아래 몇 줄뿐이다. 나머지는 빈 공간으로 높이만 차지하고, 스크롤하면 그리는 줄이 바뀐다.</title>
+<rect x="0.5" y="0.5" width="759" height="399" rx="16" fill="#ffffff" stroke="#e5e8eb"/>
+<text x="200" y="40" font-size="14" fill="#191f28" font-weight="700" text-anchor="middle">개선 전: 모두 그림</text>
+<text x="560" y="40" font-size="14" fill="#191f28" font-weight="700" text-anchor="middle">가상 스크롤: 근처만 그림</text>
+<line x1="380" y1="24" x2="380" y2="376" stroke="#f2f4f6" stroke-width="1.5"/>
+<g fill="#ffe1b8">
+<rect x="140" y="58" width="120" height="16" rx="4"/><rect x="140" y="78" width="120" height="16" rx="4"/><rect x="140" y="98" width="120" height="16" rx="4"/><rect x="140" y="118" width="120" height="16" rx="4"/><rect x="140" y="138" width="120" height="16" rx="4"/><rect x="140" y="158" width="120" height="16" rx="4"/>
+<rect x="140" y="242" width="120" height="16" rx="4"/><rect x="140" y="262" width="120" height="16" rx="4"/><rect x="140" y="282" width="120" height="16" rx="4"/><rect x="140" y="302" width="120" height="16" rx="4"/>
+</g>
+<rect x="132" y="176" width="136" height="64" rx="10" fill="#e8f3ff" stroke="#3182f6" stroke-width="2"/>
+<text x="200" y="213" font-size="12" fill="#1b64da" font-weight="700" text-anchor="middle">보이는 화면</text>
+<text x="200" y="344" font-size="12" fill="#c66b00" font-weight="700" text-anchor="middle">모든 줄을 그려 둠</text>
+<rect x="500" y="58" width="120" height="260" rx="6" fill="#ffffff" stroke="#b0b8c1" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="560" y="96" font-size="11.5" fill="#8b95a1" text-anchor="middle">빈 공간</text>
+<text x="560" y="114" font-size="11" fill="#8b95a1" text-anchor="middle">높이만 차지</text>
+<g fill="#ffe1b8"><rect x="508" y="144" width="104" height="14" rx="4"/><rect x="508" y="160" width="104" height="14" rx="4"/></g>
+<rect x="492" y="176" width="136" height="64" rx="10" fill="#e8f3ff" stroke="#3182f6" stroke-width="2"/>
+<text x="560" y="213" font-size="12" fill="#1b64da" font-weight="700" text-anchor="middle">보이는 화면</text>
+<g fill="#ffe1b8"><rect x="508" y="242" width="104" height="14" rx="4"/><rect x="508" y="258" width="104" height="14" rx="4"/></g>
+<text x="560" y="294" font-size="11.5" fill="#8b95a1" text-anchor="middle">빈 공간</text>
+<text x="650" y="157" font-size="11" fill="#c66b00">위 여유 줄</text>
+<text x="650" y="261" font-size="11" fill="#c66b00">아래 여유 줄</text>
+<rect x="636" y="58" width="5" height="260" rx="2.5" fill="#e5e8eb"/>
+<rect x="636" y="168" width="5" height="40" rx="2.5" fill="#3182f6"/>
+<text x="560" y="344" font-size="12" fill="#1b64da" font-weight="700" text-anchor="middle">근처 줄만 그리고, 전체 높이는 유지</text>
+<text x="380" y="372" font-size="11.5" fill="#8b95a1" text-anchor="middle">스크롤바 길이는 같아서 사용자는 차이를 느끼지 못하고, 스크롤하면 그리는 줄만 바뀜</text>
+</svg>

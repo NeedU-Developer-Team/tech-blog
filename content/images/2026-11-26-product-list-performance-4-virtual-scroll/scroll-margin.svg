@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="760" height="380" font-family="-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretendard','Noto Sans KR','Malgun Gothic',sans-serif" role="img" aria-label="목록 위 영역 보정. 가운데 스크롤 영역 안에서 탭, 추천 대상, 카테고리 영역 아래부터 목록이 시작한다. 이 높이를 scrollMargin으로 알려 주어 라이브러리가 목록 시작 위치를 기준으로 보이는 줄을 계산하게 한다."><title>목록 위 영역 보정. 가운데 스크롤 영역 안에서 탭, 추천 대상, 카테고리 영역 아래부터 목록이 시작한다. 이 높이를 scrollMargin으로 알려 주어 라이브러리가 목록 시작 위치를 기준으로 보이는 줄을 계산하게 한다.</title>
+<rect x="0.5" y="0.5" width="759" height="379" rx="16" fill="#ffffff" stroke="#e5e8eb"/>
+<text x="40" y="44" font-size="14" fill="#191f28" font-weight="700">가운데 스크롤 영역</text>
+<text x="40" y="64" font-size="11.5" fill="#8b95a1">[data-main-scroll-area]</text>
+<rect x="40" y="80" width="260" height="276" rx="14" fill="#f9fafb" stroke="#ff9f0a" stroke-width="1.5"/>
+<rect x="56" y="96" width="228" height="24" rx="6" fill="#e5e8eb"/><text x="170" y="112" font-size="11" fill="#4e5968" text-anchor="middle">탭</text>
+<rect x="56" y="126" width="228" height="40" rx="6" fill="#e5e8eb"/><text x="170" y="150" font-size="11" fill="#4e5968" text-anchor="middle">추천 대상 · 예산</text>
+<rect x="56" y="172" width="228" height="22" rx="6" fill="#e5e8eb"/><text x="170" y="187" font-size="11" fill="#4e5968" text-anchor="middle">카테고리</text>
+<rect x="56" y="204" width="228" height="140" rx="8" fill="#e8f3ff" stroke="#3182f6" stroke-width="1.5"/>
+<text x="170" y="270" font-size="12.5" fill="#1b64da" font-weight="700" text-anchor="middle">상품 목록 (가상 그리드)</text>
+<line x1="310" y1="88" x2="310" y2="200" stroke="#f04452" stroke-width="2"/>
+<line x1="304" y1="88" x2="316" y2="88" stroke="#f04452" stroke-width="2"/>
+<line x1="304" y1="200" x2="316" y2="200" stroke="#f04452" stroke-width="2"/>
+<text x="324" y="140" font-size="12.5" fill="#d22030" font-weight="700">scrollMargin</text>
+<text x="324" y="158" font-size="11.5" fill="#d22030">목록 위 영역의 높이</text>
+<rect x="480" y="80" width="240" height="120" rx="12" fill="#ffeced" stroke="#ffc9cd" stroke-width="1.5"/>
+<text x="600" y="106" font-size="12.5" fill="#d22030" font-weight="700" text-anchor="middle">보정하지 않으면</text>
+<text x="600" y="132" font-size="11.5" fill="#4e5968" text-anchor="middle">스크롤 영역 맨 위를 목록의</text>
+<text x="600" y="150" font-size="11.5" fill="#4e5968" text-anchor="middle">시작으로 착각해, 보이는 줄을</text>
+<text x="600" y="168" font-size="11.5" fill="#4e5968" text-anchor="middle">위 영역 높이만큼 잘못 계산</text>
+<rect x="480" y="216" width="240" height="140" rx="12" fill="#e8f3ff" stroke="#c9e2ff" stroke-width="1.5"/>
+<text x="600" y="242" font-size="12.5" fill="#1b64da" font-weight="700" text-anchor="middle">보정하면</text>
+<text x="600" y="268" font-size="11.5" fill="#4e5968" text-anchor="middle">목록이 시작하는 위치를</text>
+<text x="600" y="286" font-size="11.5" fill="#4e5968" text-anchor="middle">기준으로 보이는 줄을 계산</text>
+<text x="600" y="316" font-size="11" fill="#8b95a1" text-anchor="middle">위 영역 높이가 바뀌면</text>
+<text x="600" y="334" font-size="11" fill="#8b95a1" text-anchor="middle">ResizeObserver로 다시 계산</text>
+</svg>

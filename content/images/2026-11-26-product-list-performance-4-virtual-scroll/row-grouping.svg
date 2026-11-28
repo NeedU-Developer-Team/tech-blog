@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" width="760" height="400" font-family="-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretendard','Noto Sans KR','Malgun Gothic',sans-serif" role="img" aria-label="줄 단위 가상화. 카드 세 장을 한 줄로 묶어 줄 하나를 가상 항목으로 다룬다. 카드 5,000장은 약 1,667줄이 되고, 화면에 보이는 줄과 위아래 4줄씩만 그리며 나머지 줄은 높이만 차지한다."><title>줄 단위 가상화. 카드 세 장을 한 줄로 묶어 줄 하나를 가상 항목으로 다룬다. 카드 5,000장은 약 1,667줄이 되고, 화면에 보이는 줄과 위아래 4줄씩만 그리며 나머지 줄은 높이만 차지한다.</title>
+<rect x="0.5" y="0.5" width="759" height="399" rx="16" fill="#ffffff" stroke="#e5e8eb"/>
+<text x="40" y="44" font-size="14" fill="#191f28" font-weight="700">카드 3장 = 가상 항목 1개</text>
+<text x="40" y="64" font-size="11.5" fill="#8b95a1">카드 5,000장 → 약 1,667줄</text>
+<rect x="40" y="84" width="230" height="58" rx="10" fill="#f9fafb" stroke="#3182f6" stroke-width="1.5"/>
+<rect x="52" y="94" width="64" height="38" rx="6" fill="#e8f3ff"/><rect x="123" y="94" width="64" height="38" rx="6" fill="#e8f3ff"/><rect x="194" y="94" width="64" height="38" rx="6" fill="#e8f3ff"/>
+<text x="84" y="118" font-size="11" fill="#1b64da" text-anchor="middle">카드</text><text x="155" y="118" font-size="11" fill="#1b64da" text-anchor="middle">카드</text><text x="226" y="118" font-size="11" fill="#1b64da" text-anchor="middle">카드</text>
+<text x="155" y="164" font-size="12" fill="#1b64da" font-weight="700" text-anchor="middle">줄 1개 (높이 약 203px)</text>
+<text x="155" y="184" font-size="11.5" fill="#8b95a1" text-anchor="middle">줄 사이 간격 20px</text>
+<line x1="320" y1="28" x2="320" y2="376" stroke="#f2f4f6" stroke-width="1.5"/>
+<text x="360" y="44" font-size="14" fill="#191f28" font-weight="700">실제로 그리는 줄</text>
+<rect x="360" y="62" width="200" height="34" rx="8" fill="#ffffff" stroke="#b0b8c1" stroke-dasharray="5 4"/>
+<text x="460" y="84" font-size="11.5" fill="#8b95a1" text-anchor="middle">위쪽 줄들: 그리지 않음</text>
+<rect x="360" y="104" width="200" height="22" rx="6" fill="#fff4e6"/><text x="460" y="120" font-size="11" fill="#c66b00" text-anchor="middle">여유 줄</text>
+<rect x="360" y="130" width="200" height="22" rx="6" fill="#fff4e6"/><text x="460" y="146" font-size="11" fill="#c66b00" text-anchor="middle">여유 줄</text>
+<rect x="360" y="156" width="200" height="22" rx="6" fill="#fff4e6"/><text x="460" y="172" font-size="11" fill="#c66b00" text-anchor="middle">여유 줄</text>
+<rect x="360" y="182" width="200" height="22" rx="6" fill="#fff4e6"/><text x="460" y="198" font-size="11" fill="#c66b00" text-anchor="middle">여유 줄</text>
+<rect x="352" y="210" width="216" height="70" rx="10" fill="#e8f3ff" stroke="#3182f6" stroke-width="2"/>
+<text x="460" y="242" font-size="12.5" fill="#1b64da" font-weight="700" text-anchor="middle">화면에 보이는 줄</text>
+<text x="460" y="262" font-size="11" fill="#1b64da" text-anchor="middle">3~4줄</text>
+<rect x="360" y="286" width="200" height="22" rx="6" fill="#fff4e6"/><text x="460" y="302" font-size="11" fill="#c66b00" text-anchor="middle">여유 줄</text>
+<rect x="360" y="312" width="200" height="22" rx="6" fill="#fff4e6"/><text x="460" y="328" font-size="11" fill="#c66b00" text-anchor="middle">여유 줄</text>
+<text x="460" y="356" font-size="11" fill="#8b95a1" text-anchor="middle">… 아래로 2줄 더 (총 4줄)</text>
+<text x="590" y="150" font-size="12" fill="#c66b00" font-weight="700">위로 4줄 (overscan)</text>
+<text x="590" y="170" font-size="11" fill="#8b95a1">빠르게 올려도</text>
+<text x="590" y="186" font-size="11" fill="#8b95a1">빈 화면이 안 보이게</text>
+<text x="590" y="314" font-size="12" fill="#c66b00" font-weight="700">아래로 4줄</text>
+<text x="590" y="332" font-size="11" fill="#8b95a1">빠르게 내려도 대비</text>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" width="760" height="340" font-family="-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretendard','Noto Sans KR','Malgun Gothic',sans-serif" role="img" aria-label="서버 렌더링에서 가상 스크롤로 전환하는 흐름. 서버에서는 첫 20장을 일반 그리드 흐름으로 그려 보낸다. 브라우저에서 화면이 준비되면 한 줄의 높이를 재고, 그리기 전에 보이는 줄만 그리는 가상 스크롤 방식으로 바꾼다. 줄의 key가 같아 카드는 새로 만들지 않고 그대로 쓴다."><title>서버 렌더링에서 가상 스크롤로 전환하는 흐름. 서버에서는 첫 20장을 일반 그리드 흐름으로 그려 보낸다. 브라우저에서 화면이 준비되면 한 줄의 높이를 재고, 그리기 전에 보이는 줄만 그리는 가상 스크롤 방식으로 바꾼다. 줄의 key가 같아 카드는 새로 만들지 않고 그대로 쓴다.</title>
+<defs><marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#b0b8c1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect x="0.5" y="0.5" width="759" height="339" rx="16" fill="#ffffff" stroke="#e5e8eb"/>
+<text x="130" y="44" font-size="13" fill="#191f28" font-weight="700" text-anchor="middle">① 서버</text>
+<text x="380" y="44" font-size="13" fill="#191f28" font-weight="700" text-anchor="middle">② 브라우저에서 준비 완료</text>
+<text x="630" y="44" font-size="13" fill="#191f28" font-weight="700" text-anchor="middle">③ 그리기 전에 전환</text>
+<rect x="50" y="62" width="160" height="184" rx="12" fill="#f9fafb" stroke="#e5e8eb" stroke-width="1.5"/>
+<g fill="#e5e8eb"><rect x="64" y="76" width="132" height="18" rx="4"/><rect x="64" y="98" width="132" height="18" rx="4"/><rect x="64" y="120" width="132" height="18" rx="4"/><rect x="64" y="142" width="132" height="18" rx="4"/><rect x="64" y="164" width="132" height="18" rx="4"/><rect x="64" y="186" width="132" height="18" rx="4"/><rect x="64" y="208" width="132" height="18" rx="4"/></g>
+<text x="130" y="272" font-size="11.5" fill="#4e5968" text-anchor="middle">첫 20장을 담는 7줄을</text>
+<text x="130" y="290" font-size="11.5" fill="#4e5968" text-anchor="middle">일반 그리드로 그림</text>
+<line x1="218" y1="154" x2="292" y2="154" stroke="#b0b8c1" stroke-width="1.6" marker-end="url(#arrowGray)"/>
+<rect x="300" y="62" width="160" height="184" rx="12" fill="#f9fafb" stroke="#e5e8eb" stroke-width="1.5"/>
+<rect x="314" y="76" width="132" height="18" rx="4" fill="#ffe1b8" stroke="#ff9f0a"/>
+<g fill="#e5e8eb"><rect x="314" y="98" width="132" height="18" rx="4"/><rect x="314" y="120" width="132" height="18" rx="4"/><rect x="314" y="142" width="132" height="18" rx="4"/><rect x="314" y="164" width="132" height="18" rx="4"/><rect x="314" y="186" width="132" height="18" rx="4"/><rect x="314" y="208" width="132" height="18" rx="4"/></g>
+<text x="380" y="272" font-size="11.5" fill="#4e5968" text-anchor="middle">렌더링된 한 줄의</text>
+<text x="380" y="290" font-size="11.5" fill="#4e5968" text-anchor="middle">높이를 잼</text>
+<line x1="468" y1="154" x2="542" y2="154" stroke="#b0b8c1" stroke-width="1.6" marker-end="url(#arrowGray)"/>
+<rect x="550" y="62" width="160" height="184" rx="12" fill="#e8f3ff" stroke="#3182f6" stroke-width="1.5"/>
+<g fill="#c9e2ff"><rect x="564" y="76" width="132" height="18" rx="4"/><rect x="564" y="98" width="132" height="18" rx="4"/><rect x="564" y="120" width="132" height="18" rx="4"/><rect x="564" y="142" width="132" height="18" rx="4"/><rect x="564" y="164" width="132" height="18" rx="4"/><rect x="564" y="186" width="132" height="18" rx="4"/><rect x="564" y="208" width="132" height="18" rx="4"/></g>
+<text x="630" y="272" font-size="11.5" fill="#1b64da" text-anchor="middle">가상 스크롤 방식으로 전환</text>
+<text x="630" y="290" font-size="11.5" fill="#1b64da" text-anchor="middle">key가 같아 카드는 그대로</text>
+<text x="380" y="322" font-size="11.5" fill="#8b95a1" text-anchor="middle">사용자는 서버에서 온 첫 화면을 바로 보고, 전환은 그리기 전에 끝나 화면이 바뀌어 보이지 않음</text>
+</svg>
